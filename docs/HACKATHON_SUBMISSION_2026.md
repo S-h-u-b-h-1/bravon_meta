@@ -1,7 +1,9 @@
 # Bravon submission draft
 
-Status: prepared, not submitted. The repository remains private until the
-public-release checklist is complete and the owner authorizes publication.
+Status: prepared, not submitted. The privacy-preserving public source snapshot
+is published at `https://github.com/S-h-u-b-h-1/bravon_meta`. The owner supplied
+the demo URL on November 3, 2026; external playback and portal submission must
+still be verified and authorized by the owner.
 
 ## Project description
 
@@ -128,10 +130,10 @@ they are not estimates of general software-repair accuracy.
 
 ## Links
 
-- Repository: `https://github.com/S-h-u-b-h-1/bravon` (must be public at submission)
+- Public source snapshot: `https://github.com/S-h-u-b-h-1/bravon_meta`
 - Product: `https://bravon-meta.vercel.app`
-- Three-minute video: revised 99.518-second v3 local candidate prepared with
-  captions and readable evidence close-ups; owner approval and upload URL pending
+- Demo (owner-provided YouTube URL): `https://youtu.be/kx5_vs1fy4g`
+- Video status: uploaded link supplied; signed-out playback and final verification pending.
 
 ## Limitations and required confirmations
 
@@ -145,8 +147,8 @@ they are not estimates of general software-repair accuracy.
   The separate October 28 Docker DNS investigation used official Meta Muse
   Spark 1.3; neither constitutes qualifying proof for the open-weight bonus.
 - The public deployment is intentionally read-only and cannot run workers.
-- Track, team list, final public visibility, video URL, and submission require
-  owner confirmation.
+- Track, team list, signed-out video playback, release/provenance disclosures,
+  and final portal submission require owner confirmation.
 
 ## Immortality: physically tested DNS antibody transfer (October 29)
 
@@ -181,15 +183,15 @@ See \`docs/IMMORTALITY.md\` and the replacement Immortality-first
 
 ## Submission and video release blockers
 
-- Final video: a revised 99.518-second v3 local candidate includes readable
-  Muse and Immortality evidence, captions and recorded-versus-live disclosure.
-  Full owner playback, approval and public upload remain pending.
-- Repository: private until the owner reviews Git history and email metadata,
-  the full-source security scan, licenses and credentials, then explicitly
-  authorizes public visibility.
-- Portal: actual accepted participant status and final submission fields
-  must be confirmed in the authenticated participant portal. No submission
-  or external video upload has been authorized.
+- Final video: owner-supplied URL `https://youtu.be/kx5_vs1fy4g` references
+  the new narrated animated demo; verify signed-out access, real captions and
+  the recorded-versus-live disclosures before submission.
+- Repository: `S-h-u-b-h-1/bravon_meta` is the public history-free source
+  snapshot. Its private provenance cannot be independently inferred from the
+  public root commit; the original development repository remains private.
+- Portal: accepted participant status, personal responses, rights/consent and
+  submission fields must be confirmed in the authenticated portal. The form
+  has not been submitted by this assistant.
 - Judging: use the Participant Guide's 30/25/20/25 rubric. A November 1 live
   recheck confirmed that it matches the Official Rules; the earlier
   equal-weight interpretation was incorrect.
