@@ -1,8 +1,10 @@
 # Privacy-preserving public source snapshot — candidate
 
-This repository is a one-commit, history-free **source export** from a private
+This repository **began as a one-commit, history-free source export** from a private
 Bravon development repository. The original Git author and committer history
-is intentionally absent to avoid exposing historical private email addresses.
+was intentionally omitted to avoid exposing historical private email addresses.
+Later README and other documentation-only commits may be added without importing
+or rewriting that original development history.
 
 Original source SHA: `21e3efdd1b38e40de1ca6791a93aaa8013946a09`
 Frozen pre-event baseline SHA: `b0dd80f721d28d36e9e680bb18181ae20d4d0347`
@@ -28,7 +30,7 @@ The snapshot includes the license and dependency attribution. No model weights,
 operator-private JSON reports, secret files, videos, or original Git history
 are intentionally distributed.
 
-**Contest eligibility:** A publicly accessible repository is required by the
+**Provenance integrity:** `PUBLIC_PROVENANCE.json` records checksums for the **original exported snapshot**. If the README or other documentation is edited after export, its live checksum may differ from the frozen source-file checksum without changing the underlying source baseline. Such changes must be disclosed and independently reviewed.\n\n**Contest eligibility:** A publicly accessible repository is required by the
 Participant Guide, but a fresh, history-free snapshot is **not expressly
 confirmed as acceptable** in the accessible organizer materials. Seek written
 confirmation from the organizer or verify acceptance in the authenticated
