@@ -1,7 +1,8 @@
 # Bravon portal-ready submission copy
 
-Status: evidence-grounded draft, not submitted. Repository publication, final
-video upload and portal submission require explicit owner authorization.
+Status: evidence-grounded draft, not submitted. The sanitized repository is
+public and the owner supplied the YouTube video URL on November 3, 2026.
+Signed-out video playback, final form review and portal submission remain owner-controlled.
 
 ## Project
 
@@ -95,19 +96,20 @@ general autonomous repair performance or production safety.
 ## Links and release gates
 
 - Product: `https://bravon-meta.vercel.app`
-- Repository: `https://github.com/S-h-u-b-h-1/bravon` — private until the
-  security/publication audit is accepted; public access is required at
-  submission.
-- Video: revised 99.518-second v3 local candidate exists with captions,
-  readable evidence close-ups and recorded-versus-live disclosure. Owner
-  playback, approval and public URL remain pending; earlier drafts are historical.
+- Public sanitized source repository: `https://github.com/S-h-u-b-h-1/bravon_meta`
+  (verified public; the original development history remains private).
+- YouTube demo supplied by owner: `https://youtu.be/kx5_vs1fy4g`.
+  Confirm playback signed out and check the uploaded video against the approved
+  natural-voice animated demonstration before submitting. The earlier v3 draft
+  and intermediate exports are historical.
 - Current PR #11 Actions jobs are blocked before runner execution by the GitHub
   account's `$0` Actions spending budget recorded in open issue #12. The
   isolated local qualification is retained at
   `docs/evidence/local-release-2026-11-01-689a74d/`; it is not a successful
   GitHub Actions run.
-- License choice, historical Gmail author-address exposure, team/track portal
-  confirmation, repository visibility and final submission remain
+- The sanitized public repository uses the owner-selected MIT license and
+  privacy-preserving history export. The original private development history
+  must stay private. Team/track selection, consent and portal submission remain
   owner-controlled decisions.
 
 ## Authenticated portal field map — inspected November 1
@@ -123,8 +125,8 @@ HTML character limits. Do not submit until the owner reviews every value.
 | Which problem statement did you build towards? | Push the Frontier | Owner selects |
 | Most Viral Track X post | Leave blank | No public post authorized |
 | Project Description | Prepared below | Owner reviews |
-| Public GitHub Repository | `https://github.com/S-h-u-b-h-1/bravon` | Must be public; explicit authorization pending |
-| 3-Minute Demo Video | Pending | Owner approval, upload and signed-out playback required |
+| Public GitHub Repository | `https://github.com/S-h-u-b-h-1/bravon_meta` | Public sanitized source; owner reviews snapshot/provenance limitations |
+| 3-Minute Demo Video | `https://youtu.be/kx5_vs1fy4g` | URL supplied; signed-out playback and final content review required |
 | Describe your use of Meta products | Prepared below | Owner reviews |
 | Why are Meta's models important? | Prepared below | Owner reviews |
 | Partner technology feedback | Prepared below | Owner reviews |
