@@ -7,7 +7,7 @@ A verification-first engineering platform that lets Meta models investigate fail
 
 **Meta Global AI Developer Hackathon 2026** · **Indie Developer** · **Push the Frontier**
 
-[**Explore the live platform**](https://bravon-meta.vercel.app/) · [**Try the guided Proof Journey**](https://bravon-meta.vercel.app/#tour) · [**Inspect Meta evidence**](https://bravon-meta.vercel.app/muse) · [**Review the experiment's limitations**](#evidence-and-limitations)
+[**Watch the 3-minute demo**](https://youtu.be/kx5_vs1fy4g) · [**Explore the live platform**](https://bravon-meta.vercel.app/) · [**Try the guided Proof Journey**](https://bravon-meta.vercel.app/#tour) · [**Inspect Meta evidence**](https://bravon-meta.vercel.app/muse) · [**Review the experiment's limitations**](#evidence-and-limitations)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-1e6f5c)
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-335c69)
@@ -18,13 +18,16 @@ A verification-first engineering platform that lets Meta models investigate fail
 
 ## 🎬 Hackathon demo
 
-**Animated product demonstration · 2 minutes 49 seconds · Team Bravon**
+[![Watch Bravon — Meta AI Developer Hackathon 2026 demo on YouTube](https://img.youtube.com/vi/kx5_vs1fy4g/hqdefault.jpg)](https://youtu.be/kx5_vs1fy4g)
 
-The new narrated video is being uploaded to YouTube. **The clickable video and thumbnail will be added here when its public/unlisted playback URL is confirmed.** No MP4 needs to be committed to this repository.
+**[▶ Watch the Bravon hackathon demo on YouTube](https://youtu.be/kx5_vs1fy4g)**
 
-The video follows the complete story: **problem → solution → Meta-assisted investigation → independent verification → edge cases → impact → conclusion → thank you**.
+**Animated product demonstration · approx. 2 minutes 49 seconds · Team Bravon · Presented by Shubhaang Kataruka**
 
-> **Evidence note:** The film replays saved experiments. It does not perform live inference, Docker execution, or production repairs during playback.
+The video takes judges through **problem → proposed solution → Meta-assisted investigation → independent verification → edge cases → impact and Meta alignment → conclusion → thank you**.
+
+> **Evidence note:** This is a narrated replay of recorded experiments with animated explanations. It does not perform live Meta model inference, launch Docker, execute repairs, or prove production readiness during playback. The hosted Muse / System B results remain operator-reported rather than independently attested.
+
 
 ## The problem
 
