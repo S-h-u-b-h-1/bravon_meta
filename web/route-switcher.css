@@ -1,0 +1,21 @@
+/* Shared navigation across the real Bravon routes. */
+.bravon-route-switcher{position:relative;z-index:100;background:#0b1613;border-bottom:1px solid #375040;color:#e9f5ed;font-family:Inter,system-ui,-apple-system,sans-serif;box-sizing:border-box}
+.bravon-route-switcher *{box-sizing:border-box}
+.bravon-route-inner{display:flex;align-items:center;gap:22px;max-width:1560px;min-height:54px;margin:0 auto;padding:7px 22px}
+.bravon-route-brand{white-space:nowrap;font-size:13px;font-weight:760;color:#d2f4de!important;text-decoration:none}
+.bravon-route-links{display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:thin;min-width:0}
+.bravon-route-links a{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;min-height:40px;padding:8px 13px;border:1px solid transparent;border-radius:8px;color:#b1c7b8!important;text-decoration:none;font-size:12px;font-weight:600;line-height:1.2}
+.bravon-route-links a:hover{background:#20382b;color:#fff!important}
+.bravon-route-links a[aria-current="page"]{background:#234331;border-color:#466f53;color:#c9f9db!important}
+.bravon-route-switcher a:focus-visible{outline:2px solid #bdf8d8!important;outline-offset:2px}
+@media(max-width:720px){.bravon-route-inner{display:block;padding:8px 12px}.bravon-route-brand{display:block;padding:4px 8px}.bravon-route-links{padding-top:3px}.bravon-route-links a{font-size:12px;padding:9px 11px}}
+@media(prefers-reduced-motion:reduce){.bravon-route-switcher *{scroll-behavior:auto!important;transition:none!important}}
+
+/* Avoid duplicate mobile route bars; fall back to the original if JS fails. */
+.bravon-route-switcher ~ .shell .mobile-route-nav{display:none!important}
+.bravon-route-switcher ~ .app-shell .mobile-route-nav{display:none!important}
+body.nav-open .bravon-route-switcher{z-index:1;pointer-events:none}
+
+/* Accessible escape hatch before all interactive navigation. */
+body > a.skip-link{position:absolute;left:12px;top:-96px;z-index:150;padding:11px 16px;min-height:44px;background:#d0ffdf;color:#10251a!important;font:700 13px/1.5 system-ui;border:2px solid #376c4b;border-radius:8px;text-decoration:none}
+body > a.skip-link:focus-visible{top:10px;outline:3px solid #fff!important;outline-offset:3px}

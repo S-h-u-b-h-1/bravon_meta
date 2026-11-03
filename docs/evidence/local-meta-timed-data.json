@@ -1,0 +1,108 @@
+{
+  "evidence_envelope": {
+    "case_id": "data-final-row-and-decimals:287799621995b407:4d8d2108b4a59082",
+    "issued_at": 1793043217,
+    "key_id": "hackathon-demo-v1",
+    "nonce": "3c5093e1ecda55aaee11205276261352",
+    "observations": [
+      {
+        "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "evidence_id": "verification-report-digest",
+        "key": "verification_report_sha256",
+        "source": "bravon-local-worker",
+        "value": "sha256:e63ae1643095794913f0a0fdaa4cce8ab9cb915047d75a381fc354a8e0273e46"
+      }
+    ],
+    "runner_id": "bravon-local-worker",
+    "signature": "0c80e77b6412206161b14724fd96aba5547131757ee8846105588c85a96c920e"
+  },
+  "generated_at": "2026-10-26T19:33:37.923666+00:00",
+  "inference": "ACTUAL_LOCAL_META_OPEN_WEIGHTS",
+  "investigation": {
+    "case_id": "data-final-row-and-decimals",
+    "confidence": 1.0,
+    "cost_usd": 0.0,
+    "duration_ms": 10255,
+    "input_tokens": 1765,
+    "model": "llama3.1:8b",
+    "output_tokens": 186,
+    "proposal": {
+      "case_id": "data-final-row-and-decimals",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "failure",
+        "source"
+      ],
+      "rationale": "The observed source code and failure evidence establish a narrow fix. The source code is missing the last element in the sum function, which is causing the failure. A safe minimal replacement is to change the source code to include the last element in the sum function. This replacement is the complete target-file source and uses no dependencies.",
+      "replacement": "def total_revenue(values):\n    return sum(values)",
+      "target_file": "aggregate.py"
+    },
+    "reproduction_ms": 471,
+    "requests": 5,
+    "root_cause": "The bug is caused by the missing last element in the sum function in the source code.",
+    "source": "local-meta-openweights",
+    "transcript": [
+      {
+        "evidence_id": "failure",
+        "kind": "tool",
+        "name": "read_failure"
+      },
+      {
+        "evidence_id": "source",
+        "kind": "tool",
+        "name": "read_target"
+      },
+      {
+        "evidence_id": "public-test",
+        "kind": "tool",
+        "name": "read_public_test"
+      },
+      {
+        "confidence": 1.0,
+        "decision": "propose",
+        "evidence_ids": [
+          "failure",
+          "source"
+        ],
+        "kind": "final"
+      }
+    ],
+    "uncertainty": "Not applicable"
+  },
+  "pipeline_duration_ms": 12348,
+  "schema": "bravon.meta-investigation.v1",
+  "verification": {
+    "after_hidden": {
+      "duration_ms": 451,
+      "exit_code": 0,
+      "output": "----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "run_id": "4d8d2108b4a59082",
+      "status": "PASS",
+      "test_file": "test_behavior.py"
+    },
+    "after_public": {
+      "duration_ms": 407,
+      "exit_code": 0,
+      "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "run_id": "287799621995b407",
+      "status": "PASS",
+      "test_file": "test_regression.py"
+    },
+    "before_public": {
+      "duration_ms": 758,
+      "exit_code": 1,
+      "output": "======================================================================\nFAIL: test_final_row_is_included (test_regression.RevenueRegressionTest.test_final_row_is_included)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_final_row_is_included\n    self.assertEqual(total_revenue([10, 20]), 30)\nAssertionError: 10 != 30\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+      "run_id": "764b5cc697b98e1c",
+      "status": "ASSERT_FAIL",
+      "test_file": "test_regression.py"
+    },
+    "case_id": "data-final-row-and-decimals",
+    "domain": "data-processing",
+    "duration_ms": 1622,
+    "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+    "network": "none",
+    "proposal_sha256": "sha256:32d75ea7e303bd69fcad564f45f1a6824b5553b6c7a6e74757afbabfa1d4a232",
+    "schema": "bravon.hackathon-verification.v1",
+    "verdict": "VERIFIED"
+  }
+}

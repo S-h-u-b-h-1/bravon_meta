@@ -1,0 +1,81 @@
+/* Bravon Proof Journey — an evidence-focused document, not a decorative AI dashboard. */
+.proof-journey{max-width:1160px;margin:0 auto;color:#eaf3ec}
+.proof-journey-intro{padding:10px 0 20px;border-bottom:1px solid #33473b}
+.proof-eyebrow{color:#92bea4;font:650 11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.055em;text-transform:uppercase;margin:0 0 9px}
+.proof-journey-intro h1{font-size:clamp(34px,3.8vw,52px);line-height:1.11;letter-spacing:-.045em;margin:8px 0 12px;font-weight:680}
+.proof-journey-intro p{max-width:770px;color:#b0c4b6;font-size:14px;line-height:1.75;margin:0}
+.proof-journey-choices{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:24px 0 16px}
+.proof-journey-choices button{border:1px solid #405748;background:#182821;border-radius:8px;color:#c9d9ce;font-size:13px;font-weight:670;min-height:44px;padding:10px 16px;cursor:pointer}
+.proof-journey-choices button:hover{background:#24372b}
+.proof-journey-choices button[aria-pressed=true]{color:#0d2418;border-color:#a0f0c2;background:#a0f0c2}
+.proof-journey-record{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#b0c6b5;font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:18px}
+.proof-journey-record>span:last-child{margin-left:auto;color:#7ba792;font-size:10px}
+.proof-record-dot{width:7px;height:7px;background:#a0f0c2;border-radius:50%}
+.proof-journey-grid{display:grid;grid-template-columns:minmax(205px,.32fr) minmax(0,.68fr);gap:16px;align-items:start}
+.proof-journey-steps{display:flex;flex-direction:column;gap:4px;position:sticky;top:18px}
+.proof-journey-steps button{display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto;align-items:start;gap:2px 11px;min-height:70px;padding:13px 14px;background:transparent;border:1px solid transparent;border-radius:8px;color:#b7c9ba;text-align:left;cursor:pointer;font:inherit}
+.proof-journey-steps button>span{grid-row:span 2;font:650 11px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#82ac90}
+.proof-journey-steps button>strong{font-size:13px;font-weight:680;line-height:1.45}
+.proof-journey-steps button>small{font-size:11px;color:#94a99a;line-height:1.4}
+.proof-journey-steps button:hover:not(:disabled){background:#192b21}
+.proof-journey-steps button.selected{background:#1c3526;border-color:#4d7759}
+.proof-journey-steps button:disabled{cursor:default;opacity:.48}
+.proof-journey-right{min-width:0}
+.proof-journey-content{min-height:395px;border:1px solid #354e3d;border-radius:11px;background:#14231c;padding:clamp(20px,3vw,32px);overflow-wrap:anywhere}
+.proof-journey-content h2.proof-title{font-size:clamp(23px,2.25vw,32px);line-height:1.22;letter-spacing:-.034em;font-weight:675;margin:8px 0 15px;color:#f0f7f0}
+.proof-description{color:#aebeb1;font-size:13px;line-height:1.76;max-width:740px;margin-bottom:20px}
+.proof-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:24px 0}
+.proof-fact{border-top:1px solid #34493d;padding:13px 2px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.proof-fact-label{color:#93ad9b;font-size:11px}
+.proof-fact-value{color:#e9f3eb;font-size:13px;font-weight:650;overflow-wrap:anywhere}
+.proof-context{color:#acc5b3;font-size:12px;line-height:1.78;max-width:740px;margin:16px 0 0}
+.proof-code{white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:auto;max-height:290px;background:#101b16;border:1px solid #33483b;border-radius:8px;color:#bceacf;padding:15px;font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace}
+.proof-trace{padding-left:22px;margin:18px 0;max-height:330px;overflow:auto}
+.proof-trace>li{padding:9px 0 9px 4px;border-bottom:1px solid #2e4235;color:#e0eae1;font-size:13px;line-height:1.4}
+.proof-trace small{display:block;margin-top:5px;color:#99b3a1;font-size:11px}
+.proof-check-list{display:flex;flex-direction:column;gap:8px;margin:18px 0}
+.proof-check{display:flex;align-items:center;gap:12px;border:1px solid #334b3b;padding:13px;border-radius:8px;min-width:0}
+.proof-check-mark{display:grid;place-items:center;flex:0 0 25px;height:25px;border-radius:6px;font-weight:750}
+.proof-check-mark.passed{background:#234532;color:#b3f8c9}
+.proof-check-mark.failed{background:#482b28;color:#ffc0b7}
+.proof-check-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.proof-check-text strong{font-size:13px;font-weight:620}
+.proof-check-text small{font-size:11px;color:#a7bbae;overflow-wrap:anywhere}
+.proof-check-state{font:650 11px ui-monospace,SFMono-Regular,Menlo,monospace;color:#b3c8b8}
+.proof-outcome{margin-top:18px;padding:18px;border:1px solid #6a5a44;border-radius:8px;background:#2d2920;color:#f6d6a6}
+.proof-outcome.good{background:#1b3527;border-color:#426d50;color:#c8f0d5}
+.proof-outcome.bad{background:#362422;border-color:#734d42;color:#f3beb5}
+.proof-outcome.neutral{background:#263129;border-color:#546953;color:#d0e0cc}
+.proof-outcome strong{font-size:14px;letter-spacing:.01em}
+.proof-outcome p{font-size:12px;line-height:1.75;margin:8px 0 0}
+.proof-continue{display:inline-flex;align-items:center;min-height:44px;margin-top:24px;padding:11px 16px;background:#a0f0c2;color:#14251b;border-radius:8px;font-weight:730;font-size:12px;text-decoration:none}
+.proof-continue:hover{background:#c0ffda}
+.proof-empty{padding:42px 12px;color:#c0d4c3;line-height:1.75;max-width:700px}
+.proof-journey-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 0}
+.proof-journey-footer>span{color:#a9bfae;font-size:12px;white-space:nowrap}
+.proof-journey-footer button{min-height:44px}
+.proof-journey-footer button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.proof-journey-disclosure{padding:15px 0 0;border-top:1px solid #304637;color:#9bb3a3;font-size:11px;line-height:1.72;max-width:990px}
+.proof-journey-disclosure strong{color:#c1dfc8}
+.proof-journey :where(button,a):focus-visible{outline:2px solid #d0ffdf!important;outline-offset:3px}
+@media(max-width:900px){.proof-journey-grid{grid-template-columns:1fr}.proof-journey-steps{position:static;flex-direction:row;overflow-x:auto;padding:3px 0 8px}.proof-journey-steps button{flex:0 0 170px;min-height:76px}.proof-journey-content{min-height:330px}}
+@media(max-width:570px){.proof-journey-choices button{flex:1 1 auto}.proof-facts{grid-template-columns:1fr}.proof-journey-record>span:last-child{margin-left:0}.proof-check-state{display:none}.proof-journey-content{padding:17px}.proof-journey-footer{flex-wrap:wrap;justify-content:center}.proof-journey-footer>span{order:-1;width:100%;text-align:center}.proof-journey-footer button{flex:1}}
+@media(prefers-reduced-motion:reduce){.proof-journey *, .proof-journey *::before,.proof-journey *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+
+/* A meaningful juxtaposition of two existing records, not a synthetic success counter. */
+.proof-journey-choices button[data-proof-compare]{margin-left:auto;border-color:#57846a;color:#d3f0dc}
+.proof-journey-choices button[data-proof-compare][aria-pressed="true"]{background:#274437;border-color:#78ae8c;color:#f0fff3}
+.proof-compare-identities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:19px 0}
+.proof-compare-case{display:flex;flex-direction:column;gap:7px;padding:16px;border:1px solid #405243;border-radius:8px;background:#19271e;min-width:0}
+.proof-compare-case:first-child{border-color:#70504b;background:#2c2420}
+.proof-compare-case strong{font-size:13px;line-height:1.45;color:#edf6ef}
+.proof-compare-case small{color:#a5c0ae;font:11px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}
+.proof-compare-table{width:100%;border-collapse:collapse;font:12px/1.55 system-ui,-apple-system,sans-serif;text-align:left;margin:14px 0}
+.proof-compare-table thead{background:#203428}
+.proof-compare-table th,.proof-compare-table td{padding:12px 10px;border:1px solid #37513f;vertical-align:top}
+.proof-compare-table th{font-weight:650;color:#e3f2e6}
+.proof-compare-table td{font:650 11px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}
+.proof-compare-table .proof-cell-passed{background:#1b3829;color:#a6edbb}
+.proof-compare-table .proof-cell-failed{background:#402a26;color:#ffbfaf}
+@media(max-width:630px){.proof-journey-choices button[data-proof-compare]{margin-left:0}.proof-compare-identities{grid-template-columns:1fr}.proof-compare-table th,.proof-compare-table td{padding:8px 6px;font-size:11px}}

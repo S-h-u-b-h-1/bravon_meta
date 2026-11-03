@@ -1,0 +1,8 @@
+{
+  "id": "software-refund-negative-quantity",
+  "domain": "software",
+  "summary": "Refund calculation accepts a negative item quantity.",
+  "target_file": "refund.py",
+  "public_test": "test_regression.py",
+  "hidden_test": "test_behavior.py"
+}

@@ -1,0 +1,110 @@
+{
+  "evidence_envelope": {
+    "case_id": "infrastructure-healthcheck-hardening:89d09e69d95e6e44:5646c90109aa1d84",
+    "issued_at": 1793043239,
+    "key_id": "hackathon-demo-v1",
+    "nonce": "ff807f24ceb829b89812ae7c86022914",
+    "observations": [
+      {
+        "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "evidence_id": "verification-report-digest",
+        "key": "verification_report_sha256",
+        "source": "bravon-local-worker",
+        "value": "sha256:b421a097075232b60f8cb5ea4e86faa1d17d3369b44812282e0599f21f1870dd"
+      }
+    ],
+    "runner_id": "bravon-local-worker",
+    "signature": "166816e450c6c36552fe08b776a64ec90122ac7184f8f122eb4ab9fd15b2d7fe"
+  },
+  "generated_at": "2026-10-26T19:33:59.779217+00:00",
+  "inference": "ACTUAL_LOCAL_META_OPEN_WEIGHTS",
+  "investigation": {
+    "case_id": "infrastructure-healthcheck-hardening",
+    "confidence": 1.0,
+    "cost_usd": 0.0,
+    "duration_ms": 11694,
+    "input_tokens": 1956,
+    "model": "llama3.1:8b",
+    "output_tokens": 211,
+    "proposal": {
+      "case_id": "infrastructure-healthcheck-hardening",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "failure",
+        "public-test",
+        "source"
+      ],
+      "rationale": "The observed source code and failure evidence establish a narrow fix. The source code has an outdated health path, and the failure evidence shows a test failure due to this issue. The proposed replacement is a complete target-file source with no dependencies, which is a safe minimal replacement.",
+      "replacement": "SERVICE = {\n    \"health_path\": \"/healthz\",\n    \"read_only_root\": False,\n    \"admin_bind\": \"0.0.0.0\",\n}",
+      "target_file": "deployment.py"
+    },
+    "reproduction_ms": 477,
+    "requests": 5,
+    "root_cause": "The root cause of the issue is the outdated health path in the source code.",
+    "source": "local-meta-openweights",
+    "transcript": [
+      {
+        "evidence_id": "failure",
+        "kind": "tool",
+        "name": "read_failure"
+      },
+      {
+        "evidence_id": "public-test",
+        "kind": "tool",
+        "name": "read_public_test"
+      },
+      {
+        "evidence_id": "source",
+        "kind": "tool",
+        "name": "read_target"
+      },
+      {
+        "confidence": 1.0,
+        "decision": "propose",
+        "evidence_ids": [
+          "failure",
+          "public-test",
+          "source"
+        ],
+        "kind": "final"
+      }
+    ],
+    "uncertainty": "Not applicable"
+  },
+  "pipeline_duration_ms": 13634,
+  "schema": "bravon.meta-investigation.v1",
+  "verification": {
+    "after_hidden": {
+      "duration_ms": 434,
+      "exit_code": 1,
+      "output": "======================================================================\nFAIL: test_admin_listener_is_loopback_only (test_behavior.DeploymentBehaviorTest.test_admin_listener_is_loopback_only)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_behavior.py\", line 11, in test_admin_listener_is_loopback_only\n    self.assertEqual(SERVICE[\"admin_bind\"], \"127.0.0.1\")\nAssertionError: '0.0.0.0' != '127.0.0.1'\n- 0.0.0.0\n+ 127.0.0.1\n\n\n======================================================================\nFAIL: test_container_root_is_read_only (test_behavior.DeploymentBehaviorTest.test_container_root_is_read_only)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_behavior.py\", line 8, in test_container_root_is_read_only\n    self.assertIs(SERVICE[\"read_only_root\"], True)\nAssertionError: False is not True\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=2)\n",
+      "run_id": "5646c90109aa1d84",
+      "status": "ASSERT_FAIL",
+      "test_file": "test_behavior.py"
+    },
+    "after_public": {
+      "duration_ms": 442,
+      "exit_code": 0,
+      "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "run_id": "89d09e69d95e6e44",
+      "status": "PASS",
+      "test_file": "test_regression.py"
+    },
+    "before_public": {
+      "duration_ms": 581,
+      "exit_code": 1,
+      "output": "======================================================================\nFAIL: test_healthcheck_uses_live_endpoint (test_regression.DeploymentRegressionTest.test_healthcheck_uses_live_endpoint)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_healthcheck_uses_live_endpoint\n    self.assertEqual(SERVICE[\"health_path\"], \"/healthz\")\nAssertionError: '/status' != '/healthz'\n- /status\n+ /healthz\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+      "run_id": "9bbbc98f25d9e9c4",
+      "status": "ASSERT_FAIL",
+      "test_file": "test_regression.py"
+    },
+    "case_id": "infrastructure-healthcheck-hardening",
+    "domain": "infrastructure",
+    "duration_ms": 1463,
+    "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+    "network": "none",
+    "proposal_sha256": "sha256:999985207c1d71d06f341f925f047489164acec28827ff9fa82eedd58a6f4e27",
+    "schema": "bravon.hackathon-verification.v1",
+    "verdict": "REJECTED_FALSE_GREEN"
+  }
+}

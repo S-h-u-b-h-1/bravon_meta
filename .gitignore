@@ -1,0 +1,51 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+coverage.xml
+.coverage
+*.log
+reports/*.json
+
+# Live disposable Docker-lab state and reports
+.proofops-runtime/
+reports/
+
+# Evidence reports can include local infrastructure identifiers
+reports/
+
+# Local development
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated experiments
+reports/
+
+# Generated Python package metadata
+*.egg-info/
+build/
+dist/
+.playwright-cli/
+output/playwright/
+output/hackathon-demo*/
+qa/artifacts/
+
+# Local patch and source backups
+*.before_*
+*.bak
+*.orig
+*.rej

@@ -1,0 +1,110 @@
+{
+  "evidence_envelope": {
+    "case_id": "software-refund-negative-quantity:fb5b8f4c11a6ea15:625095db1d4007f4",
+    "issued_at": 1793043198,
+    "key_id": "hackathon-demo-v1",
+    "nonce": "bbc0cd5d947038b29d550794ebda8efc",
+    "observations": [
+      {
+        "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "evidence_id": "verification-report-digest",
+        "key": "verification_report_sha256",
+        "source": "bravon-local-worker",
+        "value": "sha256:5ed6a3f12cd96c88da43f4f0bf249f1aaf6b1c8878c5af0cb34290f70d0a802c"
+      }
+    ],
+    "runner_id": "bravon-local-worker",
+    "signature": "c60cdbad5cbe405b941dce43548394d61c8757d77cc1ac2c72e4b84dc4d3b132"
+  },
+  "generated_at": "2026-10-26T19:33:18.269743+00:00",
+  "inference": "ACTUAL_LOCAL_META_OPEN_WEIGHTS",
+  "investigation": {
+    "case_id": "software-refund-negative-quantity",
+    "confidence": 1.0,
+    "cost_usd": 0.0,
+    "duration_ms": 16533,
+    "input_tokens": 1816,
+    "model": "llama3.1:8b",
+    "output_tokens": 259,
+    "proposal": {
+      "case_id": "software-refund-negative-quantity",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "failure",
+        "public-test",
+        "source"
+      ],
+      "rationale": "The observed failure and source code indicate that the refund_total function does not correctly handle negative quantities. The test case in the public-test code snippet shows that a ValueError is not raised when a negative quantity is passed to the refund_total function. The source code for the refund_total function is also provided, which suggests that the function simply multiplies the unit price by the quantity without checking for negative values. Therefore, a safe minimal replacement for the refund_total function is to modify it to raise a ValueError when a negative quantity is passed.",
+      "replacement": "def refund_total(unit_price, quantity):\n    if quantity < 0:\n        raise ValueError('Quantity cannot be negative')\n    return unit_price * quantity",
+      "target_file": "refund.py"
+    },
+    "reproduction_ms": 487,
+    "requests": 5,
+    "root_cause": "The root cause of the issue is that the refund_total function does not correctly handle negative quantities.",
+    "source": "local-meta-openweights",
+    "transcript": [
+      {
+        "evidence_id": "failure",
+        "kind": "tool",
+        "name": "read_failure"
+      },
+      {
+        "evidence_id": "public-test",
+        "kind": "tool",
+        "name": "read_public_test"
+      },
+      {
+        "evidence_id": "source",
+        "kind": "tool",
+        "name": "read_target"
+      },
+      {
+        "confidence": 1.0,
+        "decision": "propose",
+        "evidence_ids": [
+          "failure",
+          "public-test",
+          "source"
+        ],
+        "kind": "final"
+      }
+    ],
+    "uncertainty": "Not applicable"
+  },
+  "pipeline_duration_ms": 18501,
+  "schema": "bravon.meta-investigation.v1",
+  "verification": {
+    "after_hidden": {
+      "duration_ms": 482,
+      "exit_code": 0,
+      "output": "----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "run_id": "625095db1d4007f4",
+      "status": "PASS",
+      "test_file": "test_behavior.py"
+    },
+    "after_public": {
+      "duration_ms": 454,
+      "exit_code": 0,
+      "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "run_id": "fb5b8f4c11a6ea15",
+      "status": "PASS",
+      "test_file": "test_regression.py"
+    },
+    "before_public": {
+      "duration_ms": 538,
+      "exit_code": 1,
+      "output": "======================================================================\nFAIL: test_negative_quantity_is_rejected (test_regression.RefundRegressionTest.test_negative_quantity_is_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_negative_quantity_is_rejected\n    with self.assertRaises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+      "run_id": "603fb2896776fa1e",
+      "status": "ASSERT_FAIL",
+      "test_file": "test_regression.py"
+    },
+    "case_id": "software-refund-negative-quantity",
+    "domain": "software",
+    "duration_ms": 1481,
+    "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+    "network": "none",
+    "proposal_sha256": "sha256:b2f98b69b55de388bf18ceb1fa949b5010cec94dfbd1396d5cba6e0169588fa1",
+    "schema": "bravon.hackathon-verification.v1",
+    "verdict": "VERIFIED"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "archive": {
+    "bytes": 2345738,
+    "committed": false,
+    "published": false,
+    "sha256": "e6e01043af577a3b60c9fbe775b495332070a201bcdaca3dff5be943230c9f3a",
+    "tracked_files": 276
+  },
+  "generated_at": "2026-11-01T03:58:43+05:30",
+  "gitleaks": {
+    "findings": 1,
+    "manual_classification": "KNOWN_DOCUMENTATION_FALSE_POSITIVE",
+    "rule": "generic-api-key",
+    "source": "docs/NEMOTRON_FORMAT_HOTFIX_V083.md:9",
+    "version": "8.30.1"
+  },
+  "schema": "bravon.publication-archive-audit.v1",
+  "source_commit": "edfaae251297ec50246687756e5df7103b2c4ca1",
+  "targeted_sensitive_matches": {
+    "gmail_address": 0,
+    "owner_home_path": 0,
+    "populated_model_or_api_key_assignment": 0,
+    "private_key_pem": 0
+  }
+}

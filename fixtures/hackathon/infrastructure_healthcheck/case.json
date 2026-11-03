@@ -1,0 +1,8 @@
+{
+  "id": "infrastructure-healthcheck-hardening",
+  "domain": "infrastructure",
+  "summary": "Service deployment uses a stale health path and unsafe runtime settings.",
+  "target_file": "deployment.py",
+  "public_test": "test_regression.py",
+  "hidden_test": "test_behavior.py"
+}

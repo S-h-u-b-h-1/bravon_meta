@@ -1,0 +1,281 @@
+{
+  "name": "ProofOps deterministic simulation acceptance test",
+  "generated_at": "2026-10-22T19:48:20.962441+00:00",
+  "scope": "in-memory state machine, synthetic service topology, no actual network or LLM inference",
+  "is_ai_benchmark": false,
+  "runs": 30,
+  "all_passed": true,
+  "successes": 30,
+  "results": [
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.472
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.746
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.206
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.149
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.152
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.138
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.131
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.135
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.143
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.137
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.589
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.175
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.135
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.204
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.685
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.173
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.702
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.627
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.46
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.16
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.144
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.138
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 1.924
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.198
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.664
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.586
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.392
+    },
+    {
+      "scenario": "dns-drift",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_dns",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.142
+    },
+    {
+      "scenario": "proxy-misroute",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "restore_proxy",
+      "engine": "evidence-engine",
+      "elapsed_ms": 1.098
+    },
+    {
+      "scenario": "backend-outage",
+      "initial_failure_detected": true,
+      "sandbox_checks_passed": true,
+      "recovered": true,
+      "action": "failover",
+      "engine": "evidence-engine",
+      "elapsed_ms": 0.481
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#081312">
+  <title>Bravon — Verification workspace</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231b4439'/%3E%3Ctext x='18' y='45' font-size='40' fill='%2367e0bd'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/assets/hackathon.css">
+  <link rel="stylesheet" href="/assets/hackathon-polish.css">
+  <script src="/assets/hackathon.js" defer></script>
+  <script src="/assets/proof-journey.js" defer></script>
+  <link rel="stylesheet" href="/assets/proof-journey.css">
+  <link rel="stylesheet" href="/assets/route-switcher.css">
+  <script src="/assets/route-switcher.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <div class="shell">
+    <aside class="rail" id="sidebar">
+      <a class="brand" href="#overview" data-view="overview" aria-label="Bravon overview">
+        <span class="brand-mark">B</span><span><strong>Bravon</strong><small>ENGINEERING WORKSPACE</small></span>
+      </a>
+      <button class="nav-close" id="nav-close" type="button" aria-label="Close navigation">×</button>
+      <nav aria-label="Investigation workflow">
+        <button class="nav-item active" data-view="overview"><span>01</span>Overview</button>
+        <button class="nav-item" data-view="tour"><span>02</span>Proof Journey</button>
+        <button class="nav-item" data-view="local"
+  id="local-incident-nav" hidden>
+  <span>↳</span> Local incident
+</button>
+        <button class="nav-item" data-view="new"><span>03</span>Recorded cases</button>
+        <button class="nav-item" data-view="workspace"><span>04</span>Investigation</button>
+        <button class="nav-item" data-view="repair"><span>05</span>Repair review</button>
+        <button class="nav-item" data-view="verification"><span>06</span>Verification</button>
+        <button class="nav-item" data-view="report"><span>07</span>Evidence report</button>
+        <button class="nav-item" data-view="history"><span>08</span>Run history</button>
+      </nav>
+      <a class="rail-feature-link" href="/assets/immortality.html">
+        <span class="rail-feature-icon" aria-hidden="true">◇</span>
+        <span><strong>Immortality</strong><small>Transferable safety rules</small></span>
+        <span class="rail-feature-arrow" aria-hidden="true">↗</span>
+      </a>
+      <div class="rail-note">
+        <span class="status-dot"></span><strong>Public evidence mode</strong>
+        <p>Execution and model credentials stay on the local operator machine.</p>
+      </div>
+      <div class="rail-links"><a href="/simulation">Simulation lab</a><a href="/docker">Local Docker lab</a><a href="/model-trials">Model trials</a></div>
+    </aside>
+
+    <button class="nav-backdrop" id="nav-backdrop" type="button" aria-label="Close navigation" hidden></button>
+    <main id="workspace" tabindex="-1">
+      <header class="topbar">
+        <div class="topbar-start">
+          <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open navigation"><span aria-hidden="true">☰</span></button>
+          <div class="topbar-identity"><span class="context">BRAVON / EVIDENCE WORKSPACE</span><strong id="page-title">Overview</strong></div>
+        </div>
+        <div class="topbar-end"><a class="topbar-shortcut" href="/assets/immortality.html">Immortality <span aria-hidden="true">↗</span></a><div class="top-status"><span class="status-dot"></span>Public read-only</div></div>
+      </header>
+
+      <div class="content">
+        <section class="view active" data-page="overview">
+          <div class="hero">
+            <div class="hero-copy">
+              <span class="kicker">BRAVON / WORKSPACE</span>
+              <h1>Understand what broke.<br><em>Check what fixed it.</em></h1>
+              <p>Investigate failures, review proposed fixes, and see what the tests actually proved. No hidden steps, and no pretending a passing test means everything works.</p>
+              <div class="hero-actions">
+                <button class="primary" type="button" data-go="tour">Follow a real investigation <span aria-hidden="true">↗</span></button>
+                <a class="hero-link" href="/assets/immortality.html">See Immortality <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="hero-trust"><span>Recorded model runs</span><span>Independent checks</span><span>Failed attempts kept</span></div>
+            </div>
+            <aside class="hero-verifier" aria-label="Conceptual example of why independent checks matter">
+              <div class="verifier-head"><span>THE VERIFICATION PRINCIPLE</span><span>CONCEPT / EXPLAINER</span></div>
+              <div class="verifier-case"><span class="verifier-index">01</span><div><small>MODEL PROPOSAL</small><strong>Repair appears successful</strong></div><span class="verifier-indicator candidate">PROPOSED</span></div>
+              <div class="verifier-case"><span class="verifier-index">02</span><div><small>VISIBLE REGRESSION</small><strong>Original test turns green</strong></div><span class="verifier-indicator green">PASS</span></div>
+              <div class="verifier-case verifier-case-warning"><span class="verifier-index">03</span><div><small>INDEPENDENT BEHAVIOR</small><strong>A hidden invariant still fails</strong></div><span class="verifier-indicator rejected">FAIL</span></div>
+              <div class="verifier-decision"><span class="verifier-decision-icon" aria-hidden="true">×</span><div><small>BRAVON VERDICT</small><strong>False-green repair rejected</strong></div></div>
+              <p class="verifier-note">An explanatory sequence, not a live execution. Open a recorded investigation to inspect actual evidence.</p>
+            </aside>
+          </div>
+          <section class="jury-demo" aria-labelledby="jury-demo-title">
+  <div class="jury-demo-intro"><div><span class="jury-label">GUIDED PRODUCT TOUR · RECORDED EVIDENCE</span><h2 id="jury-demo-title">See what Bravon actually proves.</h2><p>Start with a real recorded repair decision. Explore the evidence, understand why the fix was accepted or rejected, then see how an independently verified lesson can be tested on another system.</p></div><span class="jury-demo-mode">No setup required</span></div>
+  <div class="jury-demo-actions">
+    <button type="button" data-demo-verdict="REJECTED_FALSE_GREEN"><span>01</span><strong>See an unsafe repair rejected</strong><small>One visible test passes; deeper verification catches the problem.</small><b aria-hidden="true">→</b></button>
+    <button type="button" data-demo-verdict="VERIFIED"><span>02</span><strong>Inspect a verified repair</strong><small>Review the actual model proposal, tests and recorded outcome.</small><b aria-hidden="true">→</b></button>
+    <a href="/assets/immortality.html"><span>03</span><strong>Explore Immortality</strong><small>Follow the bounded System A → rule → System B experiment.</small><b aria-hidden="true">↗</b></a>
+  </div>
+  <p class="jury-demo-disclosure">This tour replays saved records. It does not inject a fault, contact Meta, execute Docker or make new claims about live production recovery.</p>
+</section>
+<section class="control-center" aria-labelledby="control-center-title">
+ <div class="control-heading"><div><span class="kicker">THE WORKFLOW</span><h2 id="control-center-title">Where do you want to start?</h2><p>Choose a lab, or review work that's already been done. Everything stays connected through the evidence.</p></div><span class="control-mode">Viewing recorded evidence</span></div>
+ <div class="control-stages">
+  <a href="/simulation" class="control-stage"><span class="control-number">01</span><strong>Try a failure</strong><small>Use the deterministic simulation to see how an incident unfolds.</small><span class="control-arrow" aria-hidden="true">↗</span></a>
+  <a href="/muse" class="control-stage"><span class="control-number">02</span><strong>Official Meta Muse evidence</strong><small>Documented real investigation and a private audited receipt. No live execution.</small><span class="control-arrow" aria-hidden="true">↗</span></a>
+  <button type="button" data-go="verification" class="control-stage"><span class="control-number">03</span><strong>Check a fix</strong><small>Read the independent checks before trusting a repair.</small><span class="control-arrow" aria-hidden="true">→</span></button>
+  <a href="/assets/immortality.html" class="control-stage"><span class="control-number">04</span><strong>Test what we learned</strong><small>See whether a verified rule can help protect another isolated system.</small><span class="control-arrow" aria-hidden="true">↗</span></a>
+ </div>
+ <p class="control-footnote"><strong>About Meta Muse:</strong> The official hosted investigator runs through a guarded local command, not a public chat box. Here you can review evidence without running Docker commands, making paid model requests or applying repairs.</p>
+</section>
+<div class="truth-banner"><strong>Real evidence. Clear boundaries.</strong><span>The workspace below shows recorded local Meta open-weight investigations and isolated verification. Hosted Muse and Immortality experiments are separately documented. Browser simulation is interactive but cannot execute public server actions.</span></div>
+          <section class="immortality-spotlight" aria-labelledby="immortality-spotlight-title">
+            <div class="spotlight-copy"><span class="spotlight-label">NEW EXPERIMENTAL CAPABILITY / IMMORTALITY</span><h2 id="immortality-spotlight-title">One failure. Another system learns.</h2><p>Turn a previously verified recovery into a non-executable safety invariant, then challenge proposed changes on a second isolated system. One DNS rule has been physically tested; this is not global software immunity.</p><a href="/assets/immortality.html" class="spotlight-action">Explore transferable protection <span aria-hidden="true">↗</span></a></div>
+            <div class="spotlight-steps" aria-label="Immortality concept">
+              <div><span>01</span><strong>RECOVER</strong><small>Source A</small></div><i aria-hidden="true">→</i>
+              <div><span>02</span><strong>COMPILE</strong><small>Antibody</small></div><i aria-hidden="true">→</i>
+              <div><span>03</span><strong>CHALLENGE</strong><small>System B</small></div>
+            </div>
+          </section>
+
+          <section id="local-incident-panel" class="panel" hidden
+                   style="padding:22px;margin:18px 0">
+            <div class="panel-head">
+              <div>
+                <span class="kicker">LOCAL INCIDENT HANDOFF</span>
+                <h2>Current injected incident</h2>
+              </div>
+              <button class="secondary" id="refresh-local-incident">
+                Refresh incident
+              </button>
+            </div>
+            <p style="margin:12px 0;color:#99adb5">
+              Deterministic simulation only. This is not independent
+              repair verification or a new Meta investigation.
+            </p>
+            <div id="local-incident-content"
+                 aria-live="polite">Loading local incident...</div>
+          </section>
+          <div class="metric-grid">
+            <article><span>RECORDED INVESTIGATIONS</span><strong id="metric-runs">—</strong><small>Actual local Meta investigations</small></article>
+            <article><span>VERIFIED REPAIRS</span><strong id="metric-verified">—</strong><small>Passed visible and independent tests</small></article>
+            <article><span>SAFE ABSTENTIONS</span><strong id="metric-abstained">—</strong><small>Preserved unsuccessful investigations</small></article>
+            <article><span>INFERENCE COST</span><strong id="metric-cost">—</strong><small>Local open-weight execution</small></article>
+          </div>
+          <div class="overview-grid">
+            <article class="panel"><div class="panel-head"><div><span class="kicker">SYSTEM BOUNDARY</span><h2>Verified separately from the model</h2></div><span class="badge teal">ACTIVE</span></div><div class="flow"><span>Failure</span><i>→</i><span>Meta investigation</span><i>→</i><span>Disposable patch</span><i>→</i><span>Hidden tests</span><i>→</i><span>Recorded evidence</span></div></article>
+            <article class="panel"><div class="panel-head"><div><span class="kicker">LATEST EVIDENCE</span><h2>Most recent run</h2></div></div><div id="latest-card" class="empty">Loading recorded evidence…</div></article>
+          </div>
+        </section>
+
+        <section class="view" data-page="tour" aria-labelledby="proof-journey-heading">
+  <div class="proof-journey">
+    <div class="proof-journey-intro">
+      <span class="proof-eyebrow">PROOF JOURNEY · RECORDED LOCAL MODEL RUNS</span>
+      <h1 id="proof-journey-heading">Follow the evidence.</h1>
+      <p>Choose a saved result and walk through each decision. The model can suggest a fix, but only the recorded independent checks determine whether it was accepted.</p>
+    </div>
+    <div class="proof-journey-choices" role="group" aria-label="Choose recorded investigation outcome">
+      <button id="proof-choice-REJECTED_FALSE_GREEN" type="button" data-proof-choice="REJECTED_FALSE_GREEN" aria-pressed="true">Rejected false green</button>
+      <button id="proof-choice-VERIFIED" type="button" data-proof-choice="VERIFIED" aria-pressed="false">Verified repair</button>
+      <button id="proof-compare" type="button" data-proof-compare aria-pressed="false">Compare the evidence</button>
+    </div>
+    <div class="proof-journey-record" role="status"><span class="proof-record-dot" aria-hidden="true"></span><span id="proof-journey-record">Record not loaded</span><span>READ-ONLY REPLAY</span></div>
+    <div class="proof-journey-grid">
+      <nav class="proof-journey-steps" aria-label="Proof journey">
+        <button type="button" data-proof-stage="0" aria-current="step" disabled><span>01</span><strong>Incident</strong><small>What failed</small></button>
+        <button type="button" data-proof-stage="1" disabled><span>02</span><strong>Investigation</strong><small>What the model observed</small></button>
+        <button type="button" data-proof-stage="2" disabled><span>03</span><strong>Proposed repair</strong><small>No execution authority</small></button>
+        <button type="button" data-proof-stage="3" disabled><span>04</span><strong>Independent checks</strong><small>What actually passed</small></button>
+        <button type="button" data-proof-stage="4" disabled><span>05</span><strong>Trust boundary</strong><small>What remains unproven</small></button>
+      </nav>
+      <div class="proof-journey-right">
+        <article id="proof-journey-content" class="proof-journey-content" aria-live="polite" aria-atomic="true">
+          <p>Choose an outcome to inspect a recorded investigation.</p>
+        </article>
+        <div class="proof-journey-footer">
+          <button id="proof-journey-back" type="button" data-proof-direction="-1" class="secondary" disabled>← Previous</button>
+          <span id="proof-journey-progress" aria-live="polite">Step 1 of 5</span>
+          <button id="proof-journey-next" type="button" data-proof-direction="1" class="primary" disabled>Next step →</button>
+        </div>
+      </div>
+    </div>
+    <p class="proof-journey-disclosure"><strong>Evidence policy:</strong> This view retrieves existing first-party investigation records only. It does not invoke official hosted Muse, perform new model inference, run Docker, or attest evidence independently.</p>
+  </div>
+</section>
+
+        <section class="view" data-page="local">
+  <div class="page-heading">
+    <span class="kicker">LOCAL SIMULATION</span>
+    <h1>Incident investigation</h1>
+    <p>Live local evidence, separate from recorded Meta investigations.</p>
+  </div>
+
+  <div class="local-export-actions">
+    <button id="export-local-evidence" class="secondary"
+            type="button" disabled>
+      Download local evidence JSON ↓
+    </button>
+  </div>
+  <article class="panel" style="padding:24px">
+    <div id="local-detail-content" aria-live="polite">
+      Loading local incident...
+    </div>
+  </article>
+</section>
+
+        <section class="view" data-page="new">
+          <div class="page-heading"><span class="kicker">START WITH A REPRODUCIBLE DEFECT</span><h1>Select technical failure</h1><p>These are committed first-party fixtures. They are demonstration cases, not claims about external infrastructure.</p></div>
+          <div id="case-grid" class="case-grid"></div>
+          <div class="boundary"><strong>Why execution is local</strong><p>The public Vercel app has no Docker socket, model key, shell endpoint, or repair mutation route. Selecting a case opens its actual recorded investigation.</p></div>
+        </section>
+
+        <section class="view" data-page="workspace">
+          <div class="page-heading compact"><span class="kicker">READ-ONLY MODEL WORKSPACE</span><h1>Investigation workspace</h1><p id="workspace-subtitle">Choose a recorded run to inspect.</p></div>
+          <div class="workspace-grid">
+            <article class="panel"><div class="panel-head"><div><span class="kicker">TOOL TRACE</span><h2>Observed evidence</h2></div><span id="request-count" class="badge">—</span></div><div id="tool-trace" class="timeline empty">No run selected.</div></article>
+            <article class="panel"><div class="panel-head"><div><span class="kicker">MODEL ASSESSMENT</span><h2>Root-cause hypothesis</h2></div><span id="model-label" class="badge teal">—</span></div><div id="hypothesis" class="assessment empty">No run selected.</div></article>
+          </div>
+        </section>
+
+        <section class="view" data-page="repair">
+          <div class="page-heading compact"><span class="kicker">HUMAN-READABLE CHANGE</span><h1>Repair review</h1><p>Model confidence never grants VERIFIED status.</p></div>
+          <div class="review-grid"><article class="panel"><div class="panel-head"><div><span class="kicker">PROPOSED FILE</span><h2 id="repair-file">No proposal</h2></div><span id="decision-badge" class="badge">—</span></div><pre id="repair-code" class="code-block">Select a proposing run.</pre></article><article class="panel"><div class="panel-head"><div><span class="kicker">SAFETY GATE</span><h2>Proposal constraints</h2></div></div><div id="safety-list" class="check-list"></div></article></div>
+        </section>
+
+        <section class="view" data-page="verification">
+          <div class="page-heading compact"><span class="kicker">AI CONFIDENCE EXCLUDED</span><h1>Independent verification</h1><p>The original failure must reproduce before a disposable copy receives the patch.</p></div>
+          <div id="verification-summary" class="verdict-card empty">Select a verified run.</div>
+          <div id="test-grid" class="test-grid"></div>
+        </section>
+
+        <section class="view" data-page="report">
+          <div class="page-heading compact report-heading"><div><span class="kicker">EXPORTABLE TECHNICAL RECORD</span><h1>Evidence report</h1><p>Runner identity, immutable environment, timings, tests, and authenticated digest.</p></div><button id="export-report" class="secondary" disabled>Export JSON ↓</button></div>
+          <div id="evidence-report" class="report-grid empty">Select a run.</div>
+        </section>
+
+        <section class="view" data-page="history">
+          <div class="page-heading compact"><span class="kicker">NO DELETED FAILURES</span><h1>Run history</h1><p>Inspect successful repairs, false-green rejections and honest abstentions together.</p></div>
+          <div class="history-filters">
+            <div><label for="run-search">SEARCH RECORDED RUNS</label><input type="search" id="run-search" placeholder="Run ID, case, or model…" autocomplete="off"></div>
+            <div><label for="verdict-filter">VERDICT</label><select id="verdict-filter"><option value="all">All outcomes</option><option value="VERIFIED">Verified</option><option value="REJECTED_FALSE_GREEN">False-green rejected</option><option value="ABSTAINED">Abstained</option></select></div>
+            <span class="history-count" id="history-count">— recorded runs</span>
+          </div>
+          <div class="panel table-panel"><div class="history-head"><span>RUN</span><span>CASE</span><span>DECISION</span><span>VERDICT</span><span>MODEL</span></div><div id="history-list" class="history-list"><div class="empty">Loading…</div></div></div>
+        </section>
+      </div>
+      <footer><span>BRAVON / HACKATHON BUILD</span><span>PUBLIC READ-ONLY · WORKERS LOCAL · NO PUBLIC MODEL INFERENCE</span></footer>
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

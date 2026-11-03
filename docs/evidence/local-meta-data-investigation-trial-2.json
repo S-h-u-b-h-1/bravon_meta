@@ -1,0 +1,106 @@
+{
+  "evidence_envelope": {
+    "case_id": "data-final-row-and-decimals:db9cfadea43e047b:b13d05ce2a8ffa4b",
+    "issued_at": 1793031781,
+    "key_id": "hackathon-demo-v1",
+    "nonce": "ac95355a4273a6a12d3dd7dc3da6893a",
+    "observations": [
+      {
+        "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "evidence_id": "verification-report-digest",
+        "key": "verification_report_sha256",
+        "source": "bravon-local-worker",
+        "value": "sha256:7182af31c3b44c890ff9edfddd19ff0fcd76d61937361cfdd0e14638a56a6f20"
+      }
+    ],
+    "runner_id": "bravon-local-worker",
+    "signature": "3a33948be3a16b4d242d1a26eae5761feab46a5089edeb58c1dd007b6452968a"
+  },
+  "generated_at": "2026-10-26T16:23:01.471615+00:00",
+  "inference": "ACTUAL_LOCAL_META_OPEN_WEIGHTS",
+  "investigation": {
+    "case_id": "data-final-row-and-decimals",
+    "confidence": 1.0,
+    "cost_usd": 0.0,
+    "duration_ms": 11249,
+    "input_tokens": 1765,
+    "model": "llama3.1:8b",
+    "output_tokens": 186,
+    "proposal": {
+      "case_id": "data-final-row-and-decimals",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "failure",
+        "source"
+      ],
+      "rationale": "The observed source code and failure evidence establish a narrow fix. The source code is missing the last element in the sum function, which is causing the failure. A safe minimal replacement is to change the source code to include the last element in the sum function. This replacement is the complete target-file source and uses no dependencies.",
+      "replacement": "def total_revenue(values):\n    return sum(values)",
+      "target_file": "aggregate.py"
+    },
+    "requests": 5,
+    "root_cause": "The bug is caused by the missing last element in the sum function in the source code.",
+    "source": "local-meta-openweights",
+    "transcript": [
+      {
+        "evidence_id": "failure",
+        "kind": "tool",
+        "name": "read_failure"
+      },
+      {
+        "evidence_id": "source",
+        "kind": "tool",
+        "name": "read_target"
+      },
+      {
+        "evidence_id": "public-test",
+        "kind": "tool",
+        "name": "read_public_test"
+      },
+      {
+        "confidence": 1.0,
+        "decision": "propose",
+        "evidence_ids": [
+          "failure",
+          "source"
+        ],
+        "kind": "final"
+      }
+    ],
+    "uncertainty": "Not applicable"
+  },
+  "schema": "bravon.meta-investigation.v1",
+  "verification": {
+    "after_hidden": {
+      "duration_ms": 570,
+      "exit_code": 0,
+      "output": "----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "run_id": "b13d05ce2a8ffa4b",
+      "status": "PASS",
+      "test_file": "test_behavior.py"
+    },
+    "after_public": {
+      "duration_ms": 561,
+      "exit_code": 0,
+      "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "run_id": "db9cfadea43e047b",
+      "status": "PASS",
+      "test_file": "test_regression.py"
+    },
+    "before_public": {
+      "duration_ms": 684,
+      "exit_code": 1,
+      "output": "======================================================================\nFAIL: test_final_row_is_included (test_regression.RevenueRegressionTest.test_final_row_is_included)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_final_row_is_included\n    self.assertEqual(total_revenue([10, 20]), 30)\nAssertionError: 10 != 30\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+      "run_id": "35103683fce4aaea",
+      "status": "ASSERT_FAIL",
+      "test_file": "test_regression.py"
+    },
+    "case_id": "data-final-row-and-decimals",
+    "domain": "data-processing",
+    "duration_ms": 1822,
+    "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+    "network": "none",
+    "proposal_sha256": "sha256:32d75ea7e303bd69fcad564f45f1a6824b5553b6c7a6e74757afbabfa1d4a232",
+    "schema": "bravon.hackathon-verification.v1",
+    "verdict": "VERIFIED"
+  }
+}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#081312">
+  <title>Bravon — Docker Lab (Local Operator)</title>
+  <link rel="stylesheet" href="/assets/docker.css">
+  <link rel="stylesheet" href="/assets/docker-polish.css">
+  <link rel="stylesheet" href="/assets/remote-evidence.css">
+  <script src="/assets/docker.js" defer></script>
+  <script src="/assets/remote-evidence.js" defer></script>
+  <link rel="stylesheet" href="/assets/route-switcher.css">
+  <script src="/assets/route-switcher.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to Docker Lab</a>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">B</div><div><strong>bravon<span>.</span></strong><small>RELIABILITY INTELLIGENCE</small></div></div>
+    <p class="sidebar-label">WORKSPACE</p>
+    <a class="nav" href="/simulation">▦ <span>Simulated lab</span></a>
+    <a class="nav selected" href="/docker">⌘ <span>Real Docker lab</span></a>
+    <a class="nav" href="/model-trials">◈ <span>AI model trials</span><b>NEW</b></a>
+    <p class="sidebar-label space">PLATFORM</p>
+    <a class="nav platform-nav" href="/">◇ <span>Evidence studio</span></a>
+    <a class="nav platform-nav" href="/assets/immortality.html">✧ <span>Immortality</span></a>
+    <p class="sidebar-label space">CAPABILITIES</p>
+    <a class="nav" href="#evidence">◉ <span>Observed evidence</span></a>
+    <a class="nav" href="#investigation-trace">◇ <span>Investigation trace</span></a>
+    <a class="nav" href="#recovery">✓ <span>Recovery protocol</span></a>
+    <a class="nav" href="#proof">▧ <span>Proof packet</span></a>
+    <div class="sidebar-bottom"><span class="pulse"></span><strong>LOCAL-ONLY EXECUTION</strong><p>Bounded Docker Compose commands, no host ports, no Docker socket inside containers.</p><a href="/simulation">← Return to simulation</a></div>
+  </aside>
+  <main id="main-content" tabindex="-1">
+    <nav class="mobile-route-nav" aria-label="Switch Bravon experience">
+      <a href="/">Evidence studio</a><a href="/simulation">Simulation</a>
+      <a href="/docker" aria-current="page">Docker</a><a href="/assets/immortality.html">Immortality</a>
+    </nav>
+    <header class="topbar"><div>WORKSPACE <span>/</span> <strong>Real infrastructure</strong></div><div class="topright"><span id="mode-pill" class="pill">CONNECTING</span><span class="avatar">B</span></div></header>
+    <div class="content">
+      <div class="eyebrow">BRAVON <span>/</span> EXPERIMENTAL RELIABILITY ENGINE <span class="dot-separator">•</span> V0.9.0</div>
+      <div class="hero"><div><h1>Real traffic.<br><em>Real recovery.</em></h1><p>Break a disposable service stack. Diagnose from live observations. Verify in a second Docker environment before authorizing repair.</p></div><div class="hero-right"><button id="start-btn" class="primary" disabled>+ Start Docker lab</button><button id="reset-btn" class="ghost" disabled>↺ Reset</button><button id="stop-btn" class="outline-danger" disabled>■ Stop lab</button></div></div>
+      <div id="banner" class="banner info" role="status">Checking local Docker-lab availability…</div>
+      <section class="remote-qualification" id="remote-qualification" aria-labelledby="remote-qualification-title">
+        <div class="remote-qualification-header">
+          <div>
+            <p class="remote-eyebrow">PRIVATE GITHUB RUNNER / EVIDENCE VIEWER</p>
+            <h2 id="remote-qualification-title">Real Docker evidence, without a local laptop.</h2>
+            <p>Bravon's owner can manually qualify a known failure on an isolated GitHub-hosted Docker runner. This public page cannot trigger that workflow. Review a minimized local evidence receipt instead.</p>
+          </div>
+          <span class="remote-qualification-label">OWNER-APPROVED · READ ONLY</span>
+        </div>
+        <div class="remote-qualification-actions">
+          <button id="remote-choose-receipt" class="remote-button" type="button">Inspect local qualification receipt</button>
+          <input id="remote-receipt-file" type="file" accept=".json,application/json" hidden>
+          <button id="remote-reset-receipt" class="remote-button-secondary" type="button">Clear evidence</button>
+          <a href="/simulation" class="remote-button-secondary">Try interactive simulation →</a>
+        </div>
+        <p id="remote-receipt-status" role="status" aria-live="polite">No remote qualification report loaded. Real Docker execution is not available to public visitors.</p>
+        <div id="remote-receipt-view" class="remote-receipt-view" hidden>
+          <div class="remote-receipt-meta">
+            <span id="remote-report-label">Reported qualification</span>
+            <strong id="remote-report-count">—</strong>
+            <small id="remote-report-run">—</small>
+          </div>
+          <div id="remote-report-scenarios" class="remote-report-scenarios"></div>
+          <p id="remote-report-limitations" class="remote-limitations">—</p>
+        </div>
+        <p class="remote-qualification-disclosure">The receipt is read from your device only. A matching content digest detects alteration but does not independently attest that a Docker experiment occurred. This workflow uses deterministic rules, <strong>not Meta Muse</strong>.</p>
+      </section>
+      <div class="metrics">
+        <div class="metric"><span class="metric-label">REAL SYSTEM STATE</span><strong id="service-state">—</strong><small id="service-caption">Not initialized</small></div>
+        <div class="metric"><span class="metric-label">LIVE HTTP / DNS CHECKS</span><strong id="checks-score">—</strong><small>Observed inside Docker network</small></div>
+        <div class="metric"><span class="metric-label">CONTROLLER REVISION</span><strong id="revision">—</strong><small>Invalidates stale approvals</small></div>
+        <div class="metric"><span class="metric-label">RECOVERED INCIDENTS</span><strong id="recovered">0</strong><small>With real before / after proof</small></div>
+      </div>
+      <div class="main-grid">
+        <div class="left">
+          <section class="panel"><div class="panel-title"><div><span class="kicker">01 / LIVE NETWORK</span><h2>Disposable service topology</h2><p>Real Compose containers; no synthetic health status</p></div><span class="tag" id="project-id">OFFLINE</span></div>
+            <div class="topology" aria-label="Client to DNS to gateway to two backend services">
+              <div class="topology-row">
+                <div class="topology-node"><span class="node-icon">▤</span><span>CLIENT PROBE</span><strong>Alpine</strong><small>Network-only access</small></div>
+                <div class="connector">────→</div>
+                <div class="topology-node" id="dns-node"><span class="node-icon">⌘</span><span>RESOLVER</span><strong>CoreDNS</strong><small>app.bravon.test</small></div>
+                <div class="connector">────→</div>
+                <div class="topology-node" id="edge-node"><span class="node-icon">⇄</span><span>REVERSE PROXY</span><strong>Nginx</strong><small>HTTP port 8080</small></div>
+              </div>
+              <div class="topology-down">↓ routes to</div>
+              <div class="topology-backends"><div class="topology-node backend" id="backend-node"><span class="node-icon">▣</span><span>PRIMARY</span><strong>Backend A</strong><small>Fast failover target</small></div><div class="topology-node backend" id="standby-node"><span class="node-icon">▣</span><span>STANDBY</span><strong>Backend B</strong><small>Independent HTTP health</small></div></div>
+            </div>
+            <div class="topology-footer"><span><i class="legend healthy"></i> Passed real probe</span><span><i class="legend failed"></i> Failing probe</span><span>Private bridge • no published ports</span></div>
+          </section>
+          <section class="panel" id="recovery"><div class="panel-title"><div><span class="kicker">02 / RESPONSE PROTOCOL</span><h2>Observe → experiment → repair</h2><p>Operator controls are intentionally explicit</p></div><span class="tag" id="incident-tag">NO INCIDENT</span></div>
+            <div class="workflow"><div class="workflow-step"><span>01</span><div><strong>Fault recorded</strong><small>Trigger exactly one allowlisted failure</small></div><em id="step-1">—</em></div><div class="workflow-step"><span>02</span><div><strong>Diagnose from live signals</strong><small>Local baseline or explicitly authorized free-model proposal</small></div><em id="step-2">—</em></div><div class="workflow-step"><span>03</span><div><strong>Independent sandbox verification</strong><small>Second Compose project reproduces the failure and tests repair</small></div><em id="step-3">—</em></div><div class="workflow-step"><span>04</span><div><strong>Authorized repair and re-probe</strong><small>Verify fingerprint + revision, then apply with rollback</small></div><em id="step-4">—</em></div></div>
+            <div id="analysis" class="analysis empty">Inject a failure and choose Analyze to get a proposal grounded in live Docker probes.</div>
+            <div class="workflow-actions"><button id="analyze-btn" class="secondary" disabled>◈ Rule diagnosis</button><button id="investigate-btn" class="secondary" disabled>◇ Reference probes (local)</button><button id="verify-btn" class="secondary" disabled>✓ Verify in replica</button><button id="repair-btn" class="primary" disabled>↗ Approve &amp; repair</button></div>
+          </section>
+        </div>
+        <div class="right">
+          <section class="panel"><div class="panel-title"><div><span class="kicker">CONTROLLED FAULTS</span><h2>Choose an incident</h2><p>Only touches Bravon containers</p></div><span class="flask">⌬</span></div>
+            <div class="scenarios"><button data-scenario="dns-drift" disabled><span class="scenario-icon">⌘</span><span><strong>DNS record drift</strong><small>CoreDNS resolves to an unreachable endpoint</small></span><span>↗</span></button><button data-scenario="proxy-misroute" disabled><span class="scenario-icon">⇄</span><span><strong>Nginx upstream misroute</strong><small>Proxy targets a nonexistent backend</small></span><span>↗</span></button><button data-scenario="backend-outage" disabled><span class="scenario-icon">▣</span><span><strong>Backend A outage</strong><small>Stop primary container, keep standby alive</small></span><span>↗</span></button></div>
+            <p class="panel-note">Only one unresolved fault per lab. No remote systems, host networking, or arbitrary shell repairs.</p>
+          </section>
+          <section class="panel" id="evidence"><div class="panel-title"><div><span class="kicker">OBSERVED TELEMETRY</span><h2>Real probe results</h2><p>Executed from client or service containers</p></div><strong id="checks-pill" class="check-pill">— / 5</strong></div><div id="check-list" class="checks"><div class="empty">Start the Docker lab to read evidence.</div></div></section>
+        </div>
+      </div>
+      <section class="panel trace-panel" id="investigation-trace"><div class="panel-title"><div><span class="kicker">03 / PROBE BY PROBE</span><h2>Read-only investigation trace</h2><p>Bounded tool invocations and cited evidence. Dashboard button uses a rule-based reference agent. Free-model Docker testing requires explicit consent in Terminal.</p></div><span class="tag">HOSTED AI OPT-IN VIA TERMINAL</span></div><div id="trace-content" class="trace-content">Inject a fault and select “Investigate with tools” to see exactly which probes were executed.</div></section>
+      <section class="panel proof-panel" id="proof"><div class="panel-title"><div><span class="kicker">04 / EVIDENCE PACKET</span><h2>Verifiable recovery record</h2><p>Independent sandbox observations and actual before/after checks, not a cryptographic signature</p></div><button id="export-btn" class="ghost" disabled>↓ Export JSON</button></div><div id="proof-content" class="proof-empty">A proof packet is created only after an authorized repair completes and all real probes pass.</div></section>
+      <footer><span>BRAVON V0.9.0 <span class="dim">/</span> REAL DOCKER LAB</span><span>LOCAL DEVELOPMENT ONLY <span class="dim">·</span> NOT CONNECTED TO PRODUCTION</span></footer>
+    </div>
+  </main>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<dialog id="confirm-dialog"><form method="dialog"><h2 id="dialog-title">Approve action</h2><p id="dialog-body"></p><label><input type="checkbox" id="dialog-check"> I understand that this changes only the disposable Bravon Docker lab.</label><div class="dialog-actions"><button value="cancel" class="ghost">Cancel</button><button value="confirm" id="dialog-confirm" class="primary" disabled>Confirm</button></div></form></dialog>
+</body>
+</html>

@@ -1,0 +1,73 @@
+name: Bravon — Owner-approved ephemeral Docker qualification
+
+# Deliberately NOT connected to Vercel, public HTTP requests, PRs, or pushes.
+# After review/merge, a repository owner may manually dispatch a fixed scenario.
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: "Fixed, disposable Bravon fault to qualify"
+        required: true
+        default: "dns-drift"
+        type: choice
+        options:
+          - dns-drift
+          - proxy-misroute
+          - backend-outage
+          - all
+      confirmation:
+        description: "Type RUN BOUNDED REMOTE DOCKER QUALIFICATION"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bravon-owner-remote-docker
+  cancel-in-progress: false
+
+jobs:
+  qualify:
+    # A private owner-controlled dispatch on the reviewed default branch only.
+    # Repository-level opt-in is unset by default; no paid environment feature assumed.
+    if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.repository == 'S-h-u-b-h-1/bravon' && github.actor == 'S-h-u-b-h-1' && github.triggering_actor == 'S-h-u-b-h-1' && inputs.confirmation == 'RUN BOUNDED REMOTE DOCKER QUALIFICATION' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      BRAVON_REMOTE_RUNNER_ENABLED: ${{ vars.BRAVON_REMOTE_RUNNER_ENABLED }}
+      PROOFOPS_ENABLE_DOCKER_UI: '0'
+      DOCKER_HOST: unix:///var/run/docker.sock
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.12'
+      - name: Verify owner-controlled repository opt-in and GitHub dispatch identity
+        shell: bash
+        run: |
+          test "${BRAVON_REMOTE_RUNNER_ENABLED:-}" = "YES"
+          test "${GITHUB_REF}" = "refs/heads/main"
+          test "${GITHUB_EVENT_NAME}" = "workflow_dispatch"
+          test "${GITHUB_ACTOR,,}" = "s-h-u-b-h-1"
+          test "${GITHUB_TRIGGERING_ACTOR,,}" = "s-h-u-b-h-1"
+      - name: Install reviewed Bravon source
+        run: python -m pip install -e .
+      - name: Run bounded no-model Docker qualification
+        shell: bash
+        env:
+          BRAVON_SCENARIO: ${{ inputs.scenario }}
+        run: |
+          python -m proofops.remote_qualification \
+            --scenario "$BRAVON_SCENARIO" \
+            --confirm 'RUN BOUNDED REMOTE DOCKER QUALIFICATION'
+      - name: Upload only minimized receipt; raw controller evidence stays on ephemeral runner
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: success()
+        with:
+          name: bravon-disposable-qualification-${{ github.run_id }}
+          path: ${{ runner.temp }}/bravon-remote-receipt.json
+          if-no-files-found: error
+          retention-days: 7

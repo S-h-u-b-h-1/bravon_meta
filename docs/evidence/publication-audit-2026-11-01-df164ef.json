@@ -1,0 +1,23 @@
+{
+  "schema": "bravon.publication-audit.v1",
+  "audited_commit": "df164ef0cdaa7da047b2717a0fc2b9e9531200d9",
+  "baseline_cutoff_commit": "b0dd80f721d28d36e9e680bb18181ae20d4d0347",
+  "reachable_commits": 311,
+  "git_archive": {
+    "tracked_files": 251,
+    "bytes": 4964352,
+    "videos": 0,
+    "private_identifiers": 0,
+    "populated_credential_files": 0,
+    "blank_env_example_only": true
+  },
+  "gitleaks": {
+    "version": "8.30.1",
+    "history_unsuppressed_findings": 0,
+    "export_findings": 1,
+    "export_actionable_findings": 0,
+    "known_false_positive": "docs/NEMOTRON_FORMAT_HOTFIX_V083.md:9 documents a model response field"
+  },
+  "publication_authorized": false,
+  "repository_visibility_changed": false
+}

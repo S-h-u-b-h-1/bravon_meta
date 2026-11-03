@@ -1,0 +1,5 @@
+# False positive: prose describing model response fields, not a credential.
+0b3da4fb95621e78d1409afbede37f56e9371565:docs/NEMOTRON_FORMAT_HOTFIX_V083.md:generic-api-key:9
+# False positives recursively recorded in a now-minimized local scan report.
+91a57d6af7077907d88d8e9e9c7c4d91ddbb47ec:docs/evidence/local-release-2026-11-01-689a74d/gitleaks-worktree.json:generic-api-key:9
+91a57d6af7077907d88d8e9e9c7c4d91ddbb47ec:docs/evidence/local-release-2026-11-01-689a74d/gitleaks-worktree.json:generic-api-key:10

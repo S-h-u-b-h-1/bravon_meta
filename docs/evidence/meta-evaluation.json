@@ -1,0 +1,36 @@
+{
+  "abstention_quality": 0.0,
+  "abstentions": 3,
+  "cost_usd": 0.0,
+  "end_to_end_by_case_ms": {
+    "data-final-row-and-decimals": 12348,
+    "infrastructure-healthcheck-hardening": 13634,
+    "software-refund-negative-quantity": 18501
+  },
+  "end_to_end_execution_ms": 44483,
+  "end_to_end_runs": 3,
+  "evidence_complete_runs": 9,
+  "evidence_coverage": 1.0,
+  "false_green_proposals_rejected": 2,
+  "false_repair_acceptance_rate": 0.0,
+  "generated_at": "2026-10-26T19:37:45.082698+00:00",
+  "inference": "ACTUAL_LOCAL_META_OPEN_WEIGHTS",
+  "input_tokens": 16199,
+  "methodology": {
+    "abstention_quality": "Abstention must identify the root cause and state substantive uncertainty.",
+    "root_cause_accuracy": "All case-specific markers must appear in the recorded root-cause text.",
+    "timing_scope": "End-to-end totals use only timed runs and include reproduction, model investigation, and candidate verification."
+  },
+  "model_requests": 45,
+  "output_tokens": 1791,
+  "proposals": 6,
+  "recorded_candidate_verifier_ms": 9739,
+  "recorded_model_duration_ms": 114827,
+  "repair_success_rate": 0.6666666666666666,
+  "root_cause_accuracy": 1.0,
+  "root_cause_correct": 9,
+  "runs": 9,
+  "schema": "bravon.meta-evaluation.v1",
+  "substantive_abstentions": 0,
+  "verified_repairs": 4
+}

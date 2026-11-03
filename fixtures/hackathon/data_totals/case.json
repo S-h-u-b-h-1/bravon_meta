@@ -1,0 +1,8 @@
+{
+  "id": "data-final-row-and-decimals",
+  "domain": "data-processing",
+  "summary": "Revenue aggregation drops the final row.",
+  "target_file": "aggregate.py",
+  "public_test": "test_regression.py",
+  "hidden_test": "test_behavior.py"
+}

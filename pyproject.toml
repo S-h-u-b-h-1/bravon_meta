@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bravon"
+version = "0.9.0"
+description = "Evidence-first incident diagnosis and verified repairs (safe local lab)"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.110,<1",
+  "uvicorn>=0.28,<1",
+  "pydantic>=2,<3",
+]
+
+[project.optional-dependencies]
+meta = ["openai>=1.70,<3"]
+dev = ["pytest>=8,<10", "httpx>=0.27,<1", "openai>=1.70,<3"]
+
+[project.scripts]
+proofops-benchmark = "proofops.benchmark:main"
+proofops-meta-eval = "proofops.frontier_eval:main"
+proofops-docker = "proofops.real_lab:main"
+proofops-qualify = "proofops.qualification:main"
+proofops-blind-eval = "proofops.blind_eval:main"
+proofops-model-contract = "proofops.model_protocol:main"
+proofops-model-trials = "proofops.model_trials:main"
+bravon-hackathon-eval = "proofops.hackathon_eval:main"
+bravon-meta-investigate = "proofops.hackathon_investigation:main"
+
+[tool.setuptools]
+py-modules = [
+  "bravon_differential",
+  "bravon_execution_contract",
+  "bravon_false_green_benchmark",
+  "bravon_provenance",
+  "bravon_signed_execution",
+  "bravon_verification",
+]
+
+[tool.setuptools.packages.find]
+include = ["proofops*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.vercel]
+entrypoint = "proofops.api:app"

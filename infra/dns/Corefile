@@ -1,0 +1,7 @@
+.:53 {
+    errors
+    hosts /etc/proofops/dns/hosts app.proofops.test {
+        ttl 1
+        reload 1s
+    }
+}

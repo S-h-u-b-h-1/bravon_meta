@@ -1,0 +1,108 @@
+/* Bravon simulation lab: visual alignment with Evidence Workspace.
+   All safety/control semantics are owned by the existing local-only backend. */
+:root{
+  color-scheme:dark;--bg:#081312;--sidebar:#0b1815;--panel:#13221e;--panel2:#1a3028;
+  --line:#2d483b;--line-soft:#294338;--ink:#ecf8f0;--muted:#a0b8aa;--muted2:#789787;
+  --teal:#9bf0c9;--teal-bg:#9bf0c918;--red:#ffaaa2;--red-bg:#ffaaa215;--amber:#e9c8a0;
+}
+body{background:radial-gradient(ellipse at 78% -12%,#214b342d,transparent 60%),var(--bg);-webkit-font-smoothing:antialiased}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--teal)!important;outline-offset:3px}
+.sidebar{background:#0c1915;border-right:1px solid #2d473a;box-shadow:4px 0 30px #05110d29}
+.brand-mark{transform:none;background:linear-gradient(145deg,#2a5b46,#183729);border-color:#598c68;box-shadow:none}
+.brand-mark-inner{transform:none;color:var(--teal)}
+.brand strong{color:#f0faef}
+.brand small{color:#7daa92}
+.workspace{background:#152a20;border-color:#395743}
+.workspace-icon{background:#244d36;color:#aff6cd}
+.nav-label{color:#8dad99}
+.nav-item{color:#9aafa2;border-radius:10px;transition:background .18s,border-color .18s,color .18s}
+.nav-item:hover{background:#1b3829;color:#eafbef}
+.nav-item.active{background:#1c4630;color:#a8f3c8;border-color:#40765a}
+.nav-item.platform-nav{color:#b5e3c6}
+.nav-symbol{color:#9bc9b0}
+.nav-count{color:var(--teal)}
+.mode-card{border-color:#3b7351;background:#173626}
+.mode-card p{color:#94b5a0}
+.author-avatar{background:#264936;color:#bbf4d1}
+.topbar{background:#0d1b16;border-color:#294538;color:#8fbba1}
+.topbar-chip{border-color:#3e6b50;background:#1c3828;color:#b6e5ca}
+.live-dot{background:var(--teal)}
+.topbar-avatar{background:#234a34;color:var(--teal)}
+.page-body{max-width:1470px}
+.heading-row h1{font-size:clamp(35px,4vw,57px);letter-spacing:-.06em}
+.heading-row h1 em{color:var(--teal)}
+.heading-row p{color:#9eb4a4}
+.eyebrow{color:#8dd9ad}
+.notice{background:#172f23;border-color:#41694e;color:#b9d6c2;border-radius:12px}
+.notice-icon{color:var(--teal)}
+.metric,.panel,.node,.step,.history-panel{border-color:#2f483b;background:linear-gradient(156deg,#172a22,#111f1d);border-radius:14px}
+.metric-head{color:#91b39d}
+.metric-value{color:#effaf1}
+.panel-heading h2{color:#e8f9ed}
+.panel-kicker{color:#9ce5b9}
+.panel-heading p{color:#96b3a0}
+.node-label{color:#9dbeaa}
+.node-icon{color:#b1eed0;background:#204431}
+.node-health{color:#a6d8b7}
+.node-health i{background:#a8edbb}
+.topology-track{border-color:#2a4739}
+.action-group .button,.button,.button-quiet{border-radius:10px}
+.button-primary{background:#9bf0c9;color:#153323}
+.button-primary:hover:not(:disabled){background:#c3ffe1}
+.button-secondary{background:#1e3428;color:#d5f1df;border-color:#426b50}
+.button-secondary:hover:not(:disabled){background:#2a4a35}
+.button-quiet{background:#1d3026;border-color:#3b6046;color:#bdddc8}
+.probe-row,.event,.history-item{border-color:#2c4639}
+.probe-details span,.event-body p,.event-time{color:#91ad9d}
+.history-item .recovered,.history-item .verified{color:#9bf0c9}
+.approve-dialog{background:#12261e;border-color:#426d51}
+.approve-dialog p{color:#adc8b4}
+.dialog-check{background:#1b3a28;border-color:#49755a}
+#toast{background:#214a32;border-color:#609c72;color:#e6ffed}
+footer{color:#779789}
+.mobile-route-nav{display:none}
+@media(max-width:780px){
+  .sidebar{display:none!important}
+  .mobile-route-nav{display:flex;position:sticky;top:0;z-index:10;gap:7px;overflow-x:auto;
+    padding:11px 15px;background:#0e2018f7;border-bottom:1px solid #365543;scrollbar-width:thin}
+  .mobile-route-nav a{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;
+    flex:1 0 auto;min-height:37px;padding:8px 12px;background:#1b3125;border:1px solid #375740;
+    border-radius:9px;color:#b4d5bf;text-decoration:none;font-size:11px;font-weight:680}
+  .mobile-route-nav a[aria-current="page"]{background:#2a5a3a;border-color:#75b68a;color:#effff1}
+  .topbar{height:58px}
+  .heading-row .button-quiet{font-size:11px}
+  .heading-row .button-quiet span{font-size:15px}
+  .page-body{padding:24px 16px 20px}
+}
+@media(max-width:520px){
+  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .heading-row{gap:14px;flex-direction:column}
+  .heading-row h1{font-size:38px}
+  .heading-row .button-quiet{font-size:12px}
+  .history-panel{overflow-x:auto}
+}
+
+/* Interaction and motion quality across the deterministic simulation laboratory. */
+@media(prefers-reduced-motion:no-preference){
+ .metric,.panel,.node,.step,.history-panel{
+  transition:border-color .25s ease,box-shadow .3s ease,background-color .25s ease;
+ }
+ .metric:hover,.panel:hover{border-color:#467259;box-shadow:0 14px 35px #020d0924}
+ .button:not(:disabled),.button-quiet:not(:disabled),.scenario:not(:disabled){
+  transition:transform .2s cubic-bezier(.2,.8,.2,1),background-color .2s ease,border-color .2s ease,box-shadow .2s ease;
+ }
+ .button:not(:disabled):active,.button-quiet:not(:disabled):active,.scenario:not(:disabled):active{transform:scale(.985)}
+}
+:where(button,input,select,a):focus-visible{outline:2px solid #c3ffe1!important;outline-offset:3px}
+button:disabled{cursor:not-allowed;box-shadow:none;transform:none!important}
+.metric,.panel,.node{min-width:0}
+@media(max-width:520px){.action-group{flex-wrap:wrap}.action-group .button{min-height:44px}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* The full topology is horizontally scrollable on narrow viewports. */
+.topology-mobile-hint{display:none}
+@media(max-width:780px){
+  .topology-scroll{overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#5d9277 transparent}
+  .topology-mobile-hint{display:block;margin:0 17px 9px;padding:0;color:#b2d5c0;font-size:11px;line-height:1.5}
+}

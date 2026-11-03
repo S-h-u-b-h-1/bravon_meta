@@ -1,0 +1,48 @@
+{
+  "evidence_envelope": null,
+  "generated_at": "2026-10-26T16:21:26.690903+00:00",
+  "inference": "ACTUAL_LOCAL_META_OPEN_WEIGHTS",
+  "investigation": {
+    "case_id": "software-refund-negative-quantity",
+    "confidence": 1.0,
+    "cost_usd": 0.0,
+    "duration_ms": 8808,
+    "input_tokens": 1828,
+    "model": "llama3.1:8b",
+    "output_tokens": 147,
+    "proposal": null,
+    "requests": 5,
+    "root_cause": "The refund_total function does not handle negative quantities correctly.",
+    "source": "local-meta-openweights",
+    "transcript": [
+      {
+        "evidence_id": "failure",
+        "kind": "tool",
+        "name": "read_failure"
+      },
+      {
+        "evidence_id": "public-test",
+        "kind": "tool",
+        "name": "read_public_test"
+      },
+      {
+        "evidence_id": "source",
+        "kind": "tool",
+        "name": "read_target"
+      },
+      {
+        "confidence": 1.0,
+        "decision": "abstain",
+        "evidence_ids": [
+          "failure",
+          "public-test",
+          "source"
+        ],
+        "kind": "final"
+      }
+    ],
+    "uncertainty": "Not applicable"
+  },
+  "schema": "bravon.meta-investigation.v1",
+  "verification": null
+}

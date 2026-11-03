@@ -1,0 +1,80 @@
+# ProofOps v0.3 — ONLY disposable lab containers. No host ports, no Docker socket.
+# Each active/verification stack has an independently scoped project name and subnet.
+services:
+  dns:
+    image: coredns/coredns:1.12.4@sha256:986f04c2e15e147d00bdd51e8c51bcef3644b13ff806be7d2ff1b261d6dfbae1
+    command: ["-conf", "/etc/coredns/Corefile"]
+    volumes:
+      - ./dns/Corefile:/etc/coredns/Corefile:ro
+      - ${PROOFOPS_STACK_DIR:?set stack directory}/dns:/etc/proofops/dns:ro
+    networks:
+      lab:
+        ipv4_address: ${PROOFOPS_DNS_IP:?set DNS IP}
+    restart: "no"
+    mem_limit: 256m
+    cpus: 1.0
+    pids_limit: 64
+    security_opt: [no-new-privileges:true]
+
+  edge:
+    image: nginx:1.30.6-alpine3.24@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949
+    volumes:
+      - ${PROOFOPS_STACK_DIR:?set stack directory}/nginx:/etc/nginx/conf.d:ro
+    networks:
+      lab:
+        ipv4_address: ${PROOFOPS_EDGE_IP:?set edge IP}
+    depends_on: [backend-a, backend-b]
+    restart: "no"
+    mem_limit: 256m
+    cpus: 1.0
+    pids_limit: 64
+    security_opt: [no-new-privileges:true]
+
+  backend-a:
+    build: ./backend
+    environment: ["PROOFOPS_BACKEND=backend-a"]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks:
+      lab:
+        ipv4_address: ${PROOFOPS_BACKEND_A_IP:?set backend A IP}
+    restart: "no"
+    mem_limit: 256m
+    cpus: 1.0
+    pids_limit: 64
+
+  backend-b:
+    build: ./backend
+    environment: ["PROOFOPS_BACKEND=backend-b"]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks:
+      lab:
+        ipv4_address: ${PROOFOPS_BACKEND_B_IP:?set backend B IP}
+    restart: "no"
+    mem_limit: 256m
+    cpus: 1.0
+    pids_limit: 64
+
+  probe:
+    image: alpine:3.22@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f
+    command: ["sleep", "100000000"]
+    dns: ["${PROOFOPS_DNS_IP:?set DNS IP}"]
+    networks:
+      lab:
+        ipv4_address: ${PROOFOPS_PROBE_IP:?set probe IP}
+    restart: "no"
+    mem_limit: 256m
+    cpus: 1.0
+    pids_limit: 64
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+
+networks:
+  lab:
+    internal: true
+    ipam:
+      config:
+        - subnet: ${PROOFOPS_SUBNET:?set subnet}

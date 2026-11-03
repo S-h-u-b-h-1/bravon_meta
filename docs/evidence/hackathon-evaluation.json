@@ -1,0 +1,349 @@
+{
+  "execution": {
+    "cases": 6,
+    "evidence_coverage": 1.0,
+    "false_repair_acceptance_rate": 0.0,
+    "incomplete_repairs": 3,
+    "incomplete_repairs_rejected": 3,
+    "repair_success_rate": 0.5,
+    "total_execution_ms": 8429,
+    "verified_repairs": 3
+  },
+  "generated_at": "2026-10-26T19:23:09.268618+00:00",
+  "meta_inference": {
+    "cost_usd": 0,
+    "input_tokens": 0,
+    "model": null,
+    "output_tokens": 0,
+    "requests": 0,
+    "status": "NOT_RUN"
+  },
+  "mode": "OFFLINE_FIRST_PARTY_FIXTURES",
+  "results": [
+    {
+      "candidate": "incomplete",
+      "evidence_envelope": {
+        "case_id": "data-final-row-and-decimals:c7295b74f14d4f6f:6a62222d91e0c039",
+        "issued_at": 1793042582,
+        "key_id": "hackathon-demo-v1",
+        "nonce": "66abd907f179c852024f69bc09792f79",
+        "observations": [
+          {
+            "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+            "evidence_id": "verification-report-digest",
+            "key": "verification_report_sha256",
+            "source": "bravon-local-worker",
+            "value": "sha256:f2db144938bf870df4d630a856271628970eb057cea1a4876b9b6e0c9e64941d"
+          }
+        ],
+        "runner_id": "bravon-local-worker",
+        "signature": "1f146ceb73a0f5336d2d96ea075bc40a46fba1a41af45183498f79dfe9abadec"
+      },
+      "verification": {
+        "after_hidden": {
+          "duration_ms": 418,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_fractional_values_remain_exact (test_behavior.RevenueBehaviorTest.test_fractional_values_remain_exact)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_behavior.py\", line 10, in test_fractional_values_remain_exact\n    self.assertEqual(result, Decimal(\"0.3\"))\nAssertionError: 0 != Decimal('0.3')\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nFAILED (failures=1)\n",
+          "run_id": "6a62222d91e0c039",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_behavior.py"
+        },
+        "after_public": {
+          "duration_ms": 508,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "run_id": "c7295b74f14d4f6f",
+          "status": "PASS",
+          "test_file": "test_regression.py"
+        },
+        "before_public": {
+          "duration_ms": 532,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_final_row_is_included (test_regression.RevenueRegressionTest.test_final_row_is_included)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_final_row_is_included\n    self.assertEqual(total_revenue([10, 20]), 30)\nAssertionError: 10 != 30\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+          "run_id": "1c4a33160079b47f",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_regression.py"
+        },
+        "case_id": "data-final-row-and-decimals",
+        "domain": "data-processing",
+        "duration_ms": 1463,
+        "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "network": "none",
+        "proposal_sha256": "sha256:599ed66d716465b8221c218ac2b878595d2aeb4c6906dd5107f5e1a6d81a77b1",
+        "schema": "bravon.hackathon-verification.v1",
+        "verdict": "REJECTED_FALSE_GREEN"
+      }
+    },
+    {
+      "candidate": "complete",
+      "evidence_envelope": {
+        "case_id": "data-final-row-and-decimals:1621ca43865cfda3:128fcea0a7fe90e4",
+        "issued_at": 1793042583,
+        "key_id": "hackathon-demo-v1",
+        "nonce": "7c866e96b76162e49d24960467415e17",
+        "observations": [
+          {
+            "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+            "evidence_id": "verification-report-digest",
+            "key": "verification_report_sha256",
+            "source": "bravon-local-worker",
+            "value": "sha256:71fa6e0e408c4ff9ec6c7ccfc4d041cdb974f24a489422fc8aa6026c8dfa932a"
+          }
+        ],
+        "runner_id": "bravon-local-worker",
+        "signature": "cd6519af8ed5b6bdec9d776c69f866146875c7aa3b6b2015b8ca33e21c7c6fdf"
+      },
+      "verification": {
+        "after_hidden": {
+          "duration_ms": 456,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+          "run_id": "128fcea0a7fe90e4",
+          "status": "PASS",
+          "test_file": "test_behavior.py"
+        },
+        "after_public": {
+          "duration_ms": 523,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "run_id": "1621ca43865cfda3",
+          "status": "PASS",
+          "test_file": "test_regression.py"
+        },
+        "before_public": {
+          "duration_ms": 457,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_final_row_is_included (test_regression.RevenueRegressionTest.test_final_row_is_included)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_final_row_is_included\n    self.assertEqual(total_revenue([10, 20]), 30)\nAssertionError: 10 != 30\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+          "run_id": "a57b219660c9a4d4",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_regression.py"
+        },
+        "case_id": "data-final-row-and-decimals",
+        "domain": "data-processing",
+        "duration_ms": 1441,
+        "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "network": "none",
+        "proposal_sha256": "sha256:581dbc52d7e6ec669c1b841b46837d25292034d0270a560dc7e4a9ad0960c81b",
+        "schema": "bravon.hackathon-verification.v1",
+        "verdict": "VERIFIED"
+      }
+    },
+    {
+      "candidate": "incomplete",
+      "evidence_envelope": {
+        "case_id": "infrastructure-healthcheck-hardening:a8292c51c4ea66e1:295e439e5d0674c2",
+        "issued_at": 1793042585,
+        "key_id": "hackathon-demo-v1",
+        "nonce": "60dc8d26364452544b3303df713f5b43",
+        "observations": [
+          {
+            "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+            "evidence_id": "verification-report-digest",
+            "key": "verification_report_sha256",
+            "source": "bravon-local-worker",
+            "value": "sha256:5cb7fc640e1b96433dd41e8d57d3c2cab2939564aa04d1718f7fcd9e82abb4ef"
+          }
+        ],
+        "runner_id": "bravon-local-worker",
+        "signature": "8f4eb49c79317c393c4dbfed95d9e943967a93b211b0538aac6dd7392d65e005"
+      },
+      "verification": {
+        "after_hidden": {
+          "duration_ms": 407,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_admin_listener_is_loopback_only (test_behavior.DeploymentBehaviorTest.test_admin_listener_is_loopback_only)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_behavior.py\", line 11, in test_admin_listener_is_loopback_only\n    self.assertEqual(SERVICE[\"admin_bind\"], \"127.0.0.1\")\nAssertionError: '0.0.0.0' != '127.0.0.1'\n- 0.0.0.0\n+ 127.0.0.1\n\n\n======================================================================\nFAIL: test_container_root_is_read_only (test_behavior.DeploymentBehaviorTest.test_container_root_is_read_only)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_behavior.py\", line 8, in test_container_root_is_read_only\n    self.assertIs(SERVICE[\"read_only_root\"], True)\nAssertionError: False is not True\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nFAILED (failures=2)\n",
+          "run_id": "295e439e5d0674c2",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_behavior.py"
+        },
+        "after_public": {
+          "duration_ms": 545,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "run_id": "a8292c51c4ea66e1",
+          "status": "PASS",
+          "test_file": "test_regression.py"
+        },
+        "before_public": {
+          "duration_ms": 549,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_healthcheck_uses_live_endpoint (test_regression.DeploymentRegressionTest.test_healthcheck_uses_live_endpoint)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_healthcheck_uses_live_endpoint\n    self.assertEqual(SERVICE[\"health_path\"], \"/healthz\")\nAssertionError: '/status' != '/healthz'\n- /status\n+ /healthz\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "run_id": "5db2aec71d3523d1",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_regression.py"
+        },
+        "case_id": "infrastructure-healthcheck-hardening",
+        "domain": "infrastructure",
+        "duration_ms": 1507,
+        "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "network": "none",
+        "proposal_sha256": "sha256:a48dc943cc525b1a9d50c309f68f2bb0e4bd151371ede7fea2c81a910075ba5a",
+        "schema": "bravon.hackathon-verification.v1",
+        "verdict": "REJECTED_FALSE_GREEN"
+      }
+    },
+    {
+      "candidate": "complete",
+      "evidence_envelope": {
+        "case_id": "infrastructure-healthcheck-hardening:86ca3ed2b72e8211:12938110e84b9618",
+        "issued_at": 1793042586,
+        "key_id": "hackathon-demo-v1",
+        "nonce": "6d35c993710482a15251ddcc0e0eedb1",
+        "observations": [
+          {
+            "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+            "evidence_id": "verification-report-digest",
+            "key": "verification_report_sha256",
+            "source": "bravon-local-worker",
+            "value": "sha256:cc28982674e35d50694b95a1c6f09c8b4a08529681fa14429718f663a2d6f80c"
+          }
+        ],
+        "runner_id": "bravon-local-worker",
+        "signature": "c24b82f4817efa0325ae0b9ebd3b5456538f0036d5d5ce48990b7003f46e2ded"
+      },
+      "verification": {
+        "after_hidden": {
+          "duration_ms": 592,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+          "run_id": "12938110e84b9618",
+          "status": "PASS",
+          "test_file": "test_behavior.py"
+        },
+        "after_public": {
+          "duration_ms": 420,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "run_id": "86ca3ed2b72e8211",
+          "status": "PASS",
+          "test_file": "test_regression.py"
+        },
+        "before_public": {
+          "duration_ms": 446,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_healthcheck_uses_live_endpoint (test_regression.DeploymentRegressionTest.test_healthcheck_uses_live_endpoint)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_healthcheck_uses_live_endpoint\n    self.assertEqual(SERVICE[\"health_path\"], \"/healthz\")\nAssertionError: '/status' != '/healthz'\n- /status\n+ /healthz\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+          "run_id": "b6a3b0c71151083b",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_regression.py"
+        },
+        "case_id": "infrastructure-healthcheck-hardening",
+        "domain": "infrastructure",
+        "duration_ms": 1463,
+        "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "network": "none",
+        "proposal_sha256": "sha256:ead44aae38291c7e93d7334cc6c255b7cb6eaf8a57efa54e85bac8d76deb3a70",
+        "schema": "bravon.hackathon-verification.v1",
+        "verdict": "VERIFIED"
+      }
+    },
+    {
+      "candidate": "incomplete",
+      "evidence_envelope": {
+        "case_id": "software-refund-negative-quantity:3f19295df24f8657:c3238cc3ea016caa",
+        "issued_at": 1793042587,
+        "key_id": "hackathon-demo-v1",
+        "nonce": "12cfcb8cb9ca2865e307f1e636cf148d",
+        "observations": [
+          {
+            "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+            "evidence_id": "verification-report-digest",
+            "key": "verification_report_sha256",
+            "source": "bravon-local-worker",
+            "value": "sha256:054b9f17f89ae3003704f88b8b99ee0c89ec561faf6b021e3e97789922e7dfc5"
+          }
+        ],
+        "runner_id": "bravon-local-worker",
+        "signature": "9309f77b36e3c8d0bcfc5d8021553c243fc76e6c1565cebf55c73955763321a8"
+      },
+      "verification": {
+        "after_hidden": {
+          "duration_ms": 392,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_all_negative_quantities_are_rejected (test_behavior.RefundBehaviorTest.test_all_negative_quantities_are_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_behavior.py\", line 11, in test_all_negative_quantities_are_rejected\n    with self.assertRaises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nFAILED (failures=1)\n",
+          "run_id": "c3238cc3ea016caa",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_behavior.py"
+        },
+        "after_public": {
+          "duration_ms": 425,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "run_id": "3f19295df24f8657",
+          "status": "PASS",
+          "test_file": "test_regression.py"
+        },
+        "before_public": {
+          "duration_ms": 479,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_negative_quantity_is_rejected (test_regression.RefundRegressionTest.test_negative_quantity_is_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_negative_quantity_is_rejected\n    with self.assertRaises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+          "run_id": "8f96af3e353ceb9a",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_regression.py"
+        },
+        "case_id": "software-refund-negative-quantity",
+        "domain": "software",
+        "duration_ms": 1301,
+        "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "network": "none",
+        "proposal_sha256": "sha256:1ae7c55b72d04629f7ee0011344dcf353f6b951becc34c3b2f3424c05a5abec9",
+        "schema": "bravon.hackathon-verification.v1",
+        "verdict": "REJECTED_FALSE_GREEN"
+      }
+    },
+    {
+      "candidate": "complete",
+      "evidence_envelope": {
+        "case_id": "software-refund-negative-quantity:67c29b45286f51f6:c5213874e8e2b6a6",
+        "issued_at": 1793042589,
+        "key_id": "hackathon-demo-v1",
+        "nonce": "110a9409e19ec2f6d787cda236f83b39",
+        "observations": [
+          {
+            "environment_fingerprint": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+            "evidence_id": "verification-report-digest",
+            "key": "verification_report_sha256",
+            "source": "bravon-local-worker",
+            "value": "sha256:4ed039f0466bcee7f52a87f168084e02cf886f1ab2266f221fe933342110b03d"
+          }
+        ],
+        "runner_id": "bravon-local-worker",
+        "signature": "10e25331122e240106bc9fc8b96005261487d8ebe13b32e8a5ab6d0c1bad7806"
+      },
+      "verification": {
+        "after_hidden": {
+          "duration_ms": 454,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+          "run_id": "c5213874e8e2b6a6",
+          "status": "PASS",
+          "test_file": "test_behavior.py"
+        },
+        "after_public": {
+          "duration_ms": 389,
+          "exit_code": 0,
+          "output": "----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "run_id": "67c29b45286f51f6",
+          "status": "PASS",
+          "test_file": "test_regression.py"
+        },
+        "before_public": {
+          "duration_ms": 405,
+          "exit_code": 1,
+          "output": "======================================================================\nFAIL: test_negative_quantity_is_rejected (test_regression.RefundRegressionTest.test_negative_quantity_is_rejected)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/test_regression.py\", line 8, in test_negative_quantity_is_rejected\n    with self.assertRaises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+          "run_id": "a76d54f6c74c222a",
+          "status": "ASSERT_FAIL",
+          "test_file": "test_regression.py"
+        },
+        "case_id": "software-refund-negative-quantity",
+        "domain": "software",
+        "duration_ms": 1254,
+        "image_digest": "sha256:255f49222a74c70d0448f6ad7ef209c6d76a1160d8fe731c929c1d81c4b9feaf",
+        "network": "none",
+        "proposal_sha256": "sha256:9fea999608dd9f445e5352de708b562b49f0fbe6c6edd4ba9e8f664dba892dc6",
+        "schema": "bravon.hackathon-verification.v1",
+        "verdict": "VERIFIED"
+      }
+    }
+  ],
+  "schema": "bravon.hackathon-evaluation.v1"
+}

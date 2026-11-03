@@ -1,0 +1,100 @@
+/* Bravon Docker Lab — matching the Evidence Workspace aesthetic.
+   This CSS never enables Docker operations on public hosting. */
+:root{
+  --bg:#081312;--sidebar:#0c1915;--panel:#14241f;--line:#2f483b;
+  --text:#eff9f1;--sub:#9eb7a7;--muted:#789688;--mint:#9bf0c9;--mint2:#1e4230;
+  --red:#ffaaa2;--amber:#e9c8a0;--mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+body{background:radial-gradient(ellipse at 80% -10%,#244a343a,transparent 60%),var(--bg);-webkit-font-smoothing:antialiased}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--mint)!important;outline-offset:3px}
+.sidebar{background:#0c1915;border-right:1px solid #2d493c}
+.brand .logo{border-radius:11px;background:#254832;color:#b8f6d2;border-color:#527d5d}
+.brand strong span{color:var(--mint)}
+.brand small,.sidebar-label{color:#88ae97}
+.nav{color:#a6bfaf;border-radius:10px;transition:background .18s,color .18s}
+.nav:hover{background:#1d3627;color:#f0fff3}
+.nav.selected{background:#245037;border-color:#477d55;color:#e4ffee}
+.nav.platform-nav{color:#c3e5cc}
+.sidebar-bottom{background:#193528;border-color:#426e54}
+.sidebar-bottom p{color:#9ebaa7}
+.topbar{background:#0d1c17;border-color:#2c493a;color:#92b19b}
+.topbar span{color:#8caf98}
+.topbar strong{color:#e6f6ea}
+.avatar{background:#254d37;color:var(--mint)}
+.content{max-width:1500px}
+.hero h1{font-size:clamp(38px,4vw,59px);letter-spacing:-.065em;line-height:1.1}
+.hero h1 em{color:var(--mint)}
+.hero p{color:#a6bfad;line-height:1.8}
+.eyebrow{color:#9ee6ba}
+.primary,.secondary,.ghost,.outline-danger{border-radius:10px}
+.primary{background:var(--mint);color:#153424;border-color:var(--mint)}
+.primary:hover:not(:disabled){background:#c0ffe0}
+.secondary,.ghost{background:#1c3629;border-color:#43644b;color:#d6eedb}
+.secondary:hover:not(:disabled),.ghost:hover:not(:disabled){background:#2a4a35}
+.outline-danger{border-color:#885349;color:#ffd2c5;background:#35231e}
+.banner{border-radius:11px}
+.banner.info{background:#172e22;border-color:#3f6c4d;color:#b4dfc1}
+.metric,.panel,.topology-node{background:linear-gradient(150deg,#172b23,#11201c);border-color:#2e493d;border-radius:14px}
+.metric-label{color:#93b7a0}
+.metric strong{color:#ebfaef}
+.panel-title h2{color:#e9f7ed}
+.kicker{color:#9ae2b3}
+.panel-title p,.workflow-step small,.scenarios small,.panel-note{color:#9bb7a6}
+.topology-node strong{color:#e3f7e9}
+.topology-node small{color:#97b2a1}
+.node-icon,.scenario-icon{background:#214a35;color:#baf6d0}
+.workflow-step{border-color:#2c4a3a}
+.workflow-step>span{color:#9ce0b8}
+.analysis{background:#1b3b2b;border-color:#427554;color:#caf4d8}
+.analysis.empty{background:#172a21;border-color:#385740;color:#9dbbab}
+.scenarios button{background:#1b3428;border-color:#3b6048;color:#e6f8e9;transition:background .18s,border-color .18s,transform .18s}
+.scenarios button:hover:not(:disabled){background:#274e35;border-color:#74b58a;transform:translateY(-1px)}
+.check{border-color:#2d4639}
+.check small{color:#87ac97}
+.trace-content{background:#0e221a;border-color:#3e634c;color:#c6e6d1}
+.proof-panel{border-color:#395b49}
+.proof-badges span{background:#204633;border-color:#4b8960;color:#bdf6d0}
+dialog{background:#15281f;color:#edf9f0;border-color:#548269}
+dialog p{color:#adc5b5}
+dialog label{background:#1e3d2c;border-color:#4c7857}
+footer{color:#819e8a}
+.mobile-route-nav{display:none}
+@media(max-width:730px){
+ .sidebar{display:none!important}
+ .mobile-route-nav{display:flex;position:sticky;top:0;z-index:10;gap:7px;overflow-x:auto;
+   padding:11px 15px;background:#0e2018f7;border-bottom:1px solid #365543;scrollbar-width:thin}
+ .mobile-route-nav a{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;
+   flex:1 0 auto;min-height:37px;padding:8px 12px;background:#1b3125;border:1px solid #375740;
+   border-radius:9px;color:#b4d5bf;text-decoration:none;font-size:11px;font-weight:680}
+ .mobile-route-nav a[aria-current="page"]{background:#2a5a3a;border-color:#75b68a;color:#effff1}
+ .hero{gap:18px}
+ .hero-right{display:flex;flex-wrap:wrap}
+ .content{padding:22px 15px}
+}
+@media(max-width:450px){
+ .hero h1{font-size:39px}
+ .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .workflow-actions{gap:7px}
+ .workflow-actions button{flex:1 1 45%}
+}
+
+/* Responsive interaction polish for read-only preview and local Docker operator view. */
+@media(prefers-reduced-motion:no-preference){
+ .metric,.panel,.topology-node{
+  transition:border-color .25s ease,box-shadow .3s ease,background-color .25s ease;
+ }
+ .metric:hover,.panel:hover{border-color:#48725a;box-shadow:0 15px 36px #020e0926}
+ .primary:not(:disabled),.secondary:not(:disabled),.ghost:not(:disabled),.outline-danger:not(:disabled){
+  transition:transform .2s cubic-bezier(.2,.8,.2,1),background-color .2s ease,border-color .2s ease,box-shadow .2s ease;
+ }
+ .primary:not(:disabled):active,.secondary:not(:disabled):active,.ghost:not(:disabled):active{transform:scale(.985)}
+}
+:where(button,a,input,select):focus-visible{outline:2px solid #c3ffe1!important;outline-offset:3px}
+button:disabled{cursor:not-allowed;transform:none!important;box-shadow:none}
+.metric,.panel,.topology-node{min-width:0}
+@media(max-width:450px){.workflow-actions button{min-height:44px}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.docker-hosted-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 20px;font-size:12px;color:#a9c5b3}.docker-hosted-actions a{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;border-radius:9px;background:#9bf0c9;color:#133424;text-decoration:none;font-weight:750}.docker-hosted-actions a:hover{background:#c2ffe0}.docker-hosted-actions span{max-width:680px;line-height:1.6}

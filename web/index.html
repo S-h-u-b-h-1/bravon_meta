@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#081312" />
+  <title>Bravon — Reliability Intelligence</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/lab-polish.css" />
+  <script src="/assets/app.js" defer></script>
+  <link rel="stylesheet" href="/assets/route-switcher.css">
+  <script src="/assets/route-switcher.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to Simulation Lab</a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark"><span class="brand-mark-inner">B</span></div><div><strong>bravon<span class="brand-dot">.</span></strong><small>RELIABILITY INTELLIGENCE</small></div></div>
+      <div class="workspace"><div class="workspace-icon">⌘</div><div class="workspace-label"><strong>Simulation lab</strong><span>Local operator mode</span></div><span class="workspace-chevron">⌄</span></div>
+      <nav aria-label="Main navigation">
+        <div class="nav-label">WORKSPACE</div>
+        <a class="nav-item active" href="#overview" data-nav="overview"><span class="nav-symbol">▦</span> Overview</a>
+        <a class="nav-item" href="#investigation" data-nav="investigation"><span class="nav-symbol">◎</span> Investigation</a>
+        <a class="nav-item" href="#evidence" data-nav="evidence"><span class="nav-symbol">≡</span> Evidence &amp; proof</a>
+        <div class="nav-label second">PLATFORM</div>
+        <a class="nav-item platform-nav" href="/"><span class="nav-symbol">◇</span> Evidence studio</a>
+        <a class="nav-item platform-nav" href="/assets/immortality.html"><span class="nav-symbol">✧</span> Immortality <span class="nav-count">LAB</span></a>
+        <div class="nav-label second">ENVIRONMENT</div>
+        <a class="nav-item" href="/docker"><span class="nav-symbol">⚙</span> Real Docker Lab</a>
+        <a class="nav-item" href="/model-trials"><span class="nav-symbol">◈</span> AI model trials <span class="nav-count">NEW</span></a>
+        <a class="nav-item" href="#incidents" data-nav="incidents"><span class="nav-symbol">⌁</span> Incident history <span id="nav-incident-count" class="nav-count">0</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mode-card"><div class="mode-top"><span class="mode-pulse"></span><span>SAFE SANDBOX</span></div><strong>Simulation mode</strong><p>No host commands, servers, DNS records, or production configs are modified.</p></div>
+        <div class="author"><div class="author-avatar">B</div><div><strong>Bravon v0.8.1</strong><span>Pre-event preparation</span></div><span class="author-ellipsis">•••</span></div>
+      </div>
+    </aside>
+    <main class="main-content" id="overview">
+      <nav class="mobile-route-nav" aria-label="Switch Bravon experience">
+        <a href="/">Evidence studio</a><a href="/simulation" aria-current="page">Simulation</a>
+        <a href="/docker">Docker</a><a href="/assets/immortality.html">Immortality</a>
+      </nav>
+      <header class="topbar"><div class="breadcrumb">Workspace <span> / </span> <strong>Command center</strong></div><div class="topbar-right"><span class="topbar-chip"><span class="live-dot"></span> Deterministic simulation</span><div class="topbar-avatar">B</div></div></header>
+      <div class="page-body">
+        <div class="eyebrow"><span class="eyebrow-stroke"></span> OBSERVABILITY / COMMAND CENTER <span class="eyebrow-divider">·</span> <span id="demo-time">LOCAL ENVIRONMENT</span></div>
+        <div class="heading-row"><div><h1>Reliability, <em>proven.</em></h1><p>Find the failure. Verify the fix. Show your evidence.</p></div><button class="button button-quiet" id="reset-btn" data-action="reset"><span>↺</span> Reset environment</button></div>
+        <div class="notice" id="simulation-boundary"><span class="notice-icon">◈</span><span>This is an <strong>isolated deterministic simulation</strong>. On the hosted website, controls are read-only; on a local operator session, changes affect only in-memory state and are not production claims.</span></div>
+
+        <section class="metrics" aria-label="Live metrics">
+          <article class="metric"><div class="metric-head"><span>SERVICE AVAILABILITY</span><span class="metric-icon">◉</span></div><div class="metric-value" id="metric-status">Healthy</div><div class="metric-foot" id="metric-status-sub"><span class="indicator indicator-success"></span> All checks passing</div></article>
+          <article class="metric"><div class="metric-head"><span>RECOVERED INCIDENTS</span><span class="metric-icon">↗</span></div><div class="metric-value" id="metric-recovered">0 <span class="metric-suffix">incidents</span></div><div class="metric-foot muted">Proven after final verification</div></article>
+          <article class="metric"><div class="metric-head"><span>VERIFIED REPAIRS</span><span class="metric-icon">✓</span></div><div class="metric-value" id="metric-verified">0 <span class="metric-suffix">plans</span></div><div class="metric-foot muted">Validated in cloned state</div></article>
+          <article class="metric"><div class="metric-head"><span>INVARIANT CHECKS</span><span class="metric-icon">⌁</span></div><div class="metric-value" id="metric-checks">5 <span class="metric-suffix">/ 5</span></div><div class="metric-foot muted">Live synthetic health probes</div></article>
+        </section>
+
+        <div class="dashboard-grid">
+          <div class="left-column">
+            <section class="panel topology-panel">
+              <div class="panel-heading"><div><span class="panel-kicker">01 / SERVICE MAP</span><h2>System topology</h2><p>Live representation of the simulated request path</p></div><div id="topology-status" class="status-chip chip-healthy"><span></span> Operational</div></div>
+              <div class="topology-scroll" tabindex="0" role="region" aria-label="Service topology"><div class="topology-track">
+                <div class="node" id="node-client"><span class="node-icon node-client-icon">▤</span><span class="node-label">CLIENT</span><strong>App request</strong><small data-detail="client">GET /</small><span class="node-health"><i></i> Healthy</span></div>
+                <div class="connector"><div class="connector-line"></div><span class="connector-arrow">›</span></div>
+                <div class="node" id="node-dns"><span class="node-icon">⌘</span><span class="node-label">DNS</span><strong>Resolver</strong><small data-detail="dns">edge-proxy</small><span class="node-health"><i></i> Healthy</span></div>
+                <div class="connector"><div class="connector-line"></div><span class="connector-arrow">›</span></div>
+                <div class="node" id="node-proxy"><span class="node-icon">⤳</span><span class="node-label">EDGE</span><strong>Gateway</strong><small data-detail="proxy">backend-a</small><span class="node-health"><i></i> Healthy</span></div>
+                <div class="connector"><div class="connector-line"></div><span class="connector-arrow">›</span></div>
+                <div class="node-stack"><div class="node node-small" id="node-backend-a"><span class="node-icon">▣</span><span class="node-label">PRIMARY</span><strong>Backend A</strong><small data-detail="backend-a">Online</small><span class="node-health"><i></i> Healthy</span></div><div class="node node-small" id="node-backend-b"><span class="node-icon">▣</span><span class="node-label">STANDBY</span><strong>Backend B</strong><small data-detail="backend-b">Online</small><span class="node-health"><i></i> Healthy</span></div></div>
+              </div></div>
+              <p class="topology-mobile-hint" aria-label="Scrollable service map">Swipe the service map to inspect the remaining components →</p>
+              <div class="topology-legend"><span><i class="legend-dot good"></i> Healthy</span><span><i class="legend-dot bad"></i> Failing</span><span><i class="legend-dot gray"></i> Simulated signals</span><span class="topology-revision" id="topology-revision">REV 1</span></div>
+            </section>
+
+            <section class="panel" id="investigation"><div class="panel-heading"><div><span class="panel-kicker">02 / INCIDENT WORKFLOW</span><h2>Investigation &amp; recovery</h2><p>Evidence → diagnosis → isolated test → approved repair</p></div><span class="small-pill" id="workflow-pill">WAITING FOR AN INCIDENT</span></div>
+              <div class="steps"><div class="step" id="step-detect"><div class="step-num">1</div><div class="step-body"><strong>Detect failure</strong><span>Inject a controlled scenario to capture the first failing probes.</span></div><span class="step-meta" id="step-detect-meta">READY</span></div><div class="step" id="step-diagnose"><div class="step-num">2</div><div class="step-body"><strong>Diagnose root cause</strong><span>Investigate observed signals and propose an allowlisted repair.</span></div><span class="step-meta" id="step-diagnose-meta">LOCKED</span></div><div class="step" id="step-verify"><div class="step-num">3</div><div class="step-body"><strong>Verify in isolated clone</strong><span>Apply to a cloned configuration and rerun all invariants.</span></div><span class="step-meta" id="step-verify-meta">LOCKED</span></div><div class="step" id="step-apply"><div class="step-num">4</div><div class="step-body"><strong>Apply &amp; prove recovery</strong><span>Require approval, check revision, validate again, and record proof.</span></div><span class="step-meta" id="step-apply-meta">LOCKED</span></div></div>
+              <div id="diagnosis-card" class="diagnosis-card hidden"></div>
+              <div id="verification-card" class="verification-card hidden"></div>
+              <div class="action-row"><label id="meta-toggle-wrap" class="toggle-wrap hidden"><input type="checkbox" id="use-meta" /> Use Meta Muse <span id="meta-model-label">Spark</span></label><div class="action-group"><button id="diagnose-btn" class="button button-secondary" data-action="diagnose" disabled>◈ &nbsp;Analyze</button><button id="verify-btn" class="button button-secondary" data-action="verify" disabled>✓ &nbsp;Verify</button><button id="apply-btn" class="button button-primary" data-action="apply" disabled>↗ &nbsp;Approve &amp; repair</button></div></div>
+            </section>
+          </div>
+          <div class="right-column">
+            <section class="panel scenario-panel"><div class="panel-heading"><div><span class="panel-kicker">SIMULATION LAB</span><h2>Introduce a failure</h2><p>Select a fault to investigate</p></div><span class="flask-symbol">⌬</span></div><div id="scenario-list" class="scenario-list">
+              <button class="scenario" data-action="inject" data-scenario="dns-drift"><span class="scenario-symbol">⌘</span><span class="scenario-copy"><strong>DNS record drift</strong><small>Traffic resolves to the wrong destination</small></span><span class="scenario-end">↗</span></button>
+              <button class="scenario" data-action="inject" data-scenario="proxy-misroute"><span class="scenario-symbol">⤳</span><span class="scenario-copy"><strong>Gateway misroute</strong><small>Upstream target points nowhere</small></span><span class="scenario-end">↗</span></button>
+              <button class="scenario" data-action="inject" data-scenario="backend-outage"><span class="scenario-symbol">▣</span><span class="scenario-copy"><strong>Primary backend crash</strong><small>Use healthy standby to restore flow</small></span><span class="scenario-end">↗</span></button>
+            </div><p class="scenario-note">Fault injection affects only the local in-memory lab.</p></section>
+            <section class="panel probes-panel" id="evidence"><div class="panel-heading"><div><span class="panel-kicker">LIVE SIGNALS</span><h2>Probe results</h2><p>Independent checks from the lab</p></div><span class="probes-counter" id="probes-counter">5 / 5</span></div><div id="probe-list" class="probe-list"><div class="loading-line">Loading probes…</div></div></section>
+            <section class="panel event-panel"><div class="panel-heading"><div><span class="panel-kicker">AUDIT TRAIL</span><h2>Activity timeline</h2><p>Recorded events for the active incident</p></div></div><div id="event-list" class="event-list"><div class="empty-timeline">No incident activity yet. Start with a failure scenario.</div></div></section>
+          </div>
+        </div>
+        <section class="panel history-panel" id="incidents"><div class="panel-heading"><div><span class="panel-kicker">HISTORICAL RECORD</span><h2>Incident history</h2><p>Each recovery retains its measured checks and audit trail for this session</p></div><span class="small-pill">IN-MEMORY</span></div><div class="history-head"><span>INCIDENT</span><span>SCENARIO</span><span>STATUS</span><span>VERIFICATION</span></div><div id="history-list" class="history-list"><div class="history-empty">No incidents yet. Inject a failure to begin.</div></div></section>
+        <footer><div><span class="footer-mark">B</span> BRAVON <span class="footer-sep">/</span> <span>Built for evidence, not assertions.</span></div><span>SIMULATED LAB · v0.8.1 · REAL LAB IN SEPARATE VIEW</span></footer>
+      </div>
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="approve-dialog" class="approve-dialog"><form method="dialog"><div class="dialog-symbol">◈</div><h2>Approve simulated repair?</h2><p id="approval-description">The action will modify only the in-memory lab state. This does not touch your machine or real infrastructure.</p><div class="dialog-check"><input type="checkbox" id="confirm-approve" /><label for="confirm-approve">I approve the verified allowlisted change to the local lab.</label></div><div class="dialog-buttons"><button class="button button-secondary" value="cancel">Cancel</button><button class="button button-primary" id="confirm-apply" value="confirm" disabled>Apply repair</button></div></form></dialog>
+</body>
+</html>

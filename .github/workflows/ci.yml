@@ -1,0 +1,105 @@
+name: Bravon verification
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  workflow_dispatch:
+concurrency:
+  group: bravon-verify-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ${{ fromJSON(github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'full-release-check') && '["3.12"]' || '["3.10","3.12","3.13"]') }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e '.[dev]'
+      - run: docker pull python:3.12-alpine@sha256:b658b05ce9c4eb97ec6fc19424818a1f31993659c2b505a532f470e83807815d
+      - run: python -m pytest -q
+      - if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-release-check')
+        run: python -m proofops.benchmark --repeats 10
+      - if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-release-check')
+        run: python -m proofops.blind_eval run --seed 20261023 --cases 42 --output /tmp/proofops-blind-v06.json
+      - if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-release-check')
+        run: python -m proofops.blind_eval verify-report /tmp/proofops-blind-v06.json
+      - if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-release-check')
+        run: python -m proofops.model_protocol run --seed 20261023 --cases 42 --output /tmp/proofops-wire-v07.json
+      - if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-release-check')
+        run: python -m proofops.model_protocol verify-report /tmp/proofops-wire-v07.json
+      - if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-release-check')
+        run: python -m proofops.model_trials preview
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '22'
+      - run: node --check web/app.js
+      - run: node --check web/docker.js
+      - run: node --check web/hackathon.js
+      - run: node --check web/proof-journey.js
+      - run: node --check web/muse-evidence.js
+      - run: node --check web/remote-evidence.js
+      - run: node --check web/immortality.js
+      - run: node --test tests/test_immortality_viewer.cjs tests/test_bravon_ui.cjs tests/test_proof_journey.cjs tests/test_muse_evidence.cjs tests/test_remote_evidence.cjs tests/test_model_trials_accessibility.cjs
+
+  browser-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]' 'playwright==1.58.0'
+      - run: python -m playwright install --with-deps chromium
+      - run: python qa/http_smoke.py
+      - run: python qa/browser_smoke.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: bravon-browser-qa
+          path: qa/artifacts/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  remote-contract:
+    if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-release-check')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify fixed remote contract and side-effect-free plan
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -q tests/test_remote_qualification.py 2>&1 | tee "$RUNNER_TEMP/bravon-remote-contract.log"
+          python -m proofops.remote_qualification --scenario dns-drift --plan
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: remote-contract-diagnostics
+          path: ${{ runner.temp }}/bravon-remote-contract.log
+          if-no-files-found: ignore
+          retention-days: 2

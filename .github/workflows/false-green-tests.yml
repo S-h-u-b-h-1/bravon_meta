@@ -1,0 +1,38 @@
+name: False-Green Verifier Tests
+on:
+  pull_request:
+    paths:
+      - 'bravon_verification.py'
+      - 'bravon_provenance.py'
+      - 'bravon_differential.py'
+      - 'bravon_execution_contract.py'
+      - 'bravon_signed_execution.py'
+      - 'bravon_false_green_benchmark.py'
+      - 'tests/test_false_green.py'
+      - 'tests/test_provenance.py'
+      - 'tests/test_differential.py'
+      - 'tests/test_execution_contract.py'
+      - 'tests/test_signed_execution.py'
+      - 'tests/test_false_green_benchmark.py'
+      - 'tests/test_executable_false_green.py'
+      - 'docs/EVIDENCE_PROVENANCE_V2.md'
+      - 'pyproject.toml'
+      - '.github/workflows/false-green-tests.yml'
+permissions:
+  contents: read
+jobs:
+  verifier:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'pytest>=8,<10'
+      - run: python -m pip install .
+      - run: cd /tmp && python -c "import bravon_provenance, bravon_signed_execution, bravon_verification"
+      - run: python -m pytest -q tests/test_false_green.py tests/test_provenance.py tests/test_false_green_benchmark.py tests/test_executable_false_green.py tests/test_differential.py tests/test_execution_contract.py tests/test_signed_execution.py
+      - run: python bravon_false_green_benchmark.py --json
